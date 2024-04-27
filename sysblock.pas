@@ -113,5 +113,6 @@ begin
   sysfile := Tsysex.Create();
   sysfile.loadSysex('sysextest.syx');
   sysfile.setBlocks;
-
+  //sysfile.blockTextSlice(3 ,12,24); //Should output SY-85 Block Type 0065VC
+  writeln(sysfile.blockTextslice(3, 12, 24));
 end.

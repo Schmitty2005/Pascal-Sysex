@@ -9,10 +9,12 @@ uses SysUtils, Classes;//, strutils;
 
 type
   Tsys = array of byte;
+
   TblockSE = record
-        startPos, endPos: longint;
-        end;
+    startPos, endPos: longint;
+  end;
   Tblocks = array of TblockSE;
+  Tpoints = array[1..2] of Qword;
 
   Tsysex = class
   private
@@ -23,11 +25,39 @@ type
     blockPoints: Tblocks;
     procedure setBlocks;
     function countblocks(Count: Tsys): Tblocks;
+    function blockTextSlice(block: Qword; startpos, endpos: Qword): string;
+    function blockToHex(block: Qword): string;
     procedure loadSysex(fnam: string);
   end;
 
 
 implementation
+
+function Tsysex.blockToHex(block: Qword): string;
+var
+  output: string;
+begin
+  Result := output;
+end;
+
+function Tsysex.blockTextSlice(block: Qword; startpos, endpos: Qword): string;
+var
+  textout: string;
+  blockSys: Tsys;
+  x: Qword;
+begin
+  textout := '';
+  x := startpos;
+  writeln();
+  writeln('Block Text Called...');
+  while x <= endpos do
+  begin
+    textout := textout + char(sysarray[x]);
+    Write(char(sysarray[x]));
+    x := x + 1;
+  end;
+  Result := textout;
+end;
 
 function Tsysex.countblocks(Count: Tsys): Tblocks;
 var
