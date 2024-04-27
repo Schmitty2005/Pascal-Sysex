@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="sysblock.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="105"/>
+        <CursorPos X="29" Y="117"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="sysexer.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="36"/>
+        <CursorPos X="20" Y="42"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="10">
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="26" Column="66" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="32" Column="45" TopLine="20"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="45" Column="17" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="36" Column="7" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="116" Column="35" TopLine="104"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="33" Column="67" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="43" Column="29" TopLine="35"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="116" Column="35" TopLine="105"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="27" Column="69" TopLine="20"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="42" Column="20" TopLine="36"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="117" Column="41" TopLine="105"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default">
+        <Mode Name="default"/>
+      </Modes>
+    </RunParams>
+    <HistoryLists>
+      <List Name="WorkingDirectory" Type="File" Count="1"/>
+      <List Name="LaunchingApplication" Type="File" Count="2">
+        <Item2 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
+      </List>
+      <List Name="CommandLineParameters" Count="1"/>
+    </HistoryLists>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="sysexer.pas"/>
+        <Line Value="18"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>
