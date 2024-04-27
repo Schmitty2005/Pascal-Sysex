@@ -1,6 +1,10 @@
 {$MODE DELPHI}
 program sysblock;
-
+{
+==============================================
+A testing ground for the sysexer.pas methods
+==============================================
+}
 uses
   SysUtils,
   sysexer;
