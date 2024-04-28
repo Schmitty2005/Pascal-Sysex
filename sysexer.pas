@@ -18,8 +18,13 @@ type
 
   Tsysex = class
   private
+    sysex_filename: string;
+    sysex_blocks: Tblocks;
     sysarray: Tsys;
     single: byte;
+    function get_sysex_size(): Qword;
+    function get_filename: string;
+    procedure set_filename(fname: string);
 
   public
     blockPoints: Tblocks;
@@ -28,15 +33,40 @@ type
     function blockTextSlice(block: Qword; startpos, endpos: Qword): string;
     function blockToHex(block: Qword): string;
     procedure loadSysex(fnam: string);
+    property get_sysex_blocks: Tblocks read sysex_blocks;
+
+  published
+    property sysex_size: Qword read get_sysex_size;
+    property filename: string read sysex_filename write set_filename;
   end;
 
 
 implementation
 
+function Tsysex.get_filename: string;
+begin
+  Result := sysex_filename;
+end;
+
+procedure Tsysex.set_filename(fname: string);
+begin
+  sysex_filename := fname;
+  loadsysex(fname);
+  exit();
+end;
+
+function Tsysex.get_sysex_size(): Qword;
+begin
+  Result := length(sysarray);
+end;
+
 function Tsysex.blockToHex(block: Qword): string;
 var
   output: string;
+  outbyte : byte;
 begin
+  for outbyte in
+  output := 'Not yet implemented';
   Result := output;
 end;
 
@@ -48,8 +78,8 @@ var
 begin
   textout := '';
   x := startpos;
-  writeln();
-  writeln('Block Text Called...');
+  // writeln();
+  //writeln('Block Text Called...');
   while x <= endpos do
   begin
     textout := textout + char(sysarray[x]);
@@ -93,6 +123,7 @@ begin
 
   setlength(Result, w);
 
+  sysex_blocks := output;
   Result := output;
 end;
 
