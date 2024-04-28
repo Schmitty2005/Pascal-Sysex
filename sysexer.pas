@@ -64,8 +64,15 @@ function Tsysex.blockToHex(block: Qword): string;
 var
   output: string;
   outbyte : byte;
+  tempblock : Tsys;
 begin
-  for outbyte in
+  //TEMP tempblock for testing
+  tempblock := [240,245,234,234,123,4,3,45,34,23,32,34,65,68,76,247];
+  for outbyte in tempblock do
+  begin
+    write(IntToHex(outbyte));
+    write (' ');
+  end;
   output := 'Not yet implemented';
   Result := output;
 end;
