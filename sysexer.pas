@@ -1,7 +1,5 @@
 {$MODE DELPHI}
-
 unit sysexer;
-
 
 interface
 
@@ -25,7 +23,8 @@ type
     function get_sysex_size(): Qword;
     function get_filename: string;
     procedure set_filename(fname: string);
-
+    function get_block(blockNumber: Qword): Tsys;
+    function get_msb_lsb_value(msb, lsb: byte): word;
   public
     blockPoints: Tblocks;
     procedure setBlocks;
@@ -42,6 +41,31 @@ type
 
 
 implementation
+
+function Tsysex.get_msb_lsb_value(msb, lsb: byte): word;
+begin
+  Result := (msb * 128) + lsb;
+end;
+
+function Tsysex.get_block(blockNumber: Qword): Tsys;
+var
+  blockPoints: TblockSE;
+  blockData: Tsys;
+  output: Tsys;
+  startpos, endpos, x, y: Qword;
+begin
+  blockPoints := sysex_blocks[blockNumber];
+  startpos := blockPoints.startpos;
+  endpos := blockPoints.endpos;
+  setLength(output, ((endpos - startpos) + 1));
+  y := 0;
+  for x := startpos to (endpos + 1) do
+  begin
+    output[y] := sysarray[x];
+    y := y + 1;
+  end;
+  Result := output;
+end;
 
 function Tsysex.get_filename: string;
 begin
@@ -61,19 +85,33 @@ begin
 end;
 
 function Tsysex.blockToHex(block: Qword): string;
+const
+  columnSpace = '     ';
 var
   output: string;
-  outbyte : byte;
-  tempblock : Tsys;
+  outbyte: byte;
+  tempblock: Tsys;
+  y: Qword;
 begin
-  //TEMP tempblock for testing
-  tempblock := [240,245,234,234,123,4,3,45,34,23,32,34,65,68,76,247];
+  tempblock := get_block(block);
+  y := 0;
   for outbyte in tempblock do
   begin
-    write(IntToHex(outbyte));
-    write (' ');
+    output := output + (IntToHEx(outbyte));
+    y := y + 1;
+    Write(IntToHex(outbyte));
+    Write(' ');
+    if ((y mod 16) = 0) and (y <> 0) then
+    begin
+      //add code here to display 16bytes of ASCII Chars only
+      // other chars will be replaced with a '.';
+      writeln(columnSpace + '..ASCII..LATER..');
+      output := output + sLineBreak;
+    end;
+
   end;
-  output := 'Not yet implemented';
+
+  output := sLineBreak + 'Not yet fully implemented';
   Result := output;
 end;
 
