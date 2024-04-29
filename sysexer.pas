@@ -87,32 +87,36 @@ end;
 function Tsysex.blockToHex(block: Qword): string;
 const
   columnSpace = '     ';
+  hexSpace = '  ';
 var
-  output: string;
+  output, asciiOut: string;
   outbyte: byte;
   tempblock: Tsys;
-  y: Qword;
+  y, z: Qword;
 begin
+  output := '';
+  asciiout := columnSpace;
   tempblock := get_block(block);
   y := 0;
   for outbyte in tempblock do
   begin
-    output := output + (IntToHEx(outbyte));
+    output := output + (IntToHEx(outbyte)+ hexSpace);
+    if ((outbyte  <32) or (outbyte > 128)) then
+    asciiout := asciiout + '.'
+    else
+    asciiout := asciiout + char(outbyte);
     y := y + 1;
-    Write(IntToHex(outbyte));
-    Write(' ');
+    //Write(IntToHex(outbyte));
+    //Write(' ');
+
     if ((y mod 16) = 0) and (y <> 0) then
-    begin
-      //add code here to display 16bytes of ASCII Chars only
-      // other chars will be replaced with a '.';
-      writeln(columnSpace + '..ASCII..LATER..');
-      output := output + sLineBreak;
-    end;
-
-  end;
-
-  output := sLineBreak + 'Not yet fully implemented';
+      begin
+        output := output + asciiOut + slineBreak;
+        asciiOut :=columnSpace;
+      end;
+  writeln(output);
   Result := output;
+  end;
 end;
 
 function Tsysex.blockTextSlice(block: Qword; startpos, endpos: Qword): string;

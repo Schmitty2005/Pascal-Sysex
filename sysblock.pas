@@ -36,7 +36,7 @@ var
       x := x + 1;
       while (x <= (dis * (y))) do
       begin
-        build[x] := 64;
+        build[x] := 37;
         x := x + 1;
       end;
       build[(x)] := 247;
