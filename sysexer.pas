@@ -113,11 +113,21 @@ begin
       output := output + asciiOut + slineBreak;
       asciiOut := columnSpace;
     end
-    else if (y= length(tempblock) )then
+    else if ( y >  (length(tempblock)-15)) then
+      while (y<(length(tempblock)-14)) do
+        begin
+         output:=output + '  ' + hexSpace;
+         y:=y+1;
+         //@TODO Extra space seems to be added in asciiOut Routine
+         // with blocks < 16 in length
+        end;
+
+     if (y= length(tempblock) )then
     //@TODO needs a mod / 16 forumla to add proper spaces for
     // columns to line up
-    output :=output + asciiOut + sLineBreak;
+        output :=output + columnSpace +  asciiOut + sLineBreak;
   end;
+
   //writeln(output);
   Result := output;
 end;

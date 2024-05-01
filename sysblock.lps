@@ -7,131 +7,23 @@
       <Unit>
         <Filename Value="sysblock.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="97"/>
-        <CursorPos X="35" Y="97"/>
-        <FoldState Value=" T3M2P T6i722 T1iA2V{"/>
-        <UsageCount Value="29"/>
+        <TopLine Value="44"/>
+        <CursorPos X="30" Y="28"/>
+        <FoldState Value=" T6i722 T1iA2V."/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="sysexer.pas"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="110"/>
-        <CursorPos X="36" Y="116"/>
+        <TopLine Value="114"/>
+        <CursorPos X="37" Y="117"/>
         <UsageCount Value="16"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="108" TopLine="102"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="109" TopLine="102"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="113" TopLine="103"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="102" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="104" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="105" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="106" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="109" TopLine="103"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="113" TopLine="103"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="102" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="104" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="105" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="108" TopLine="102"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="109" TopLine="102"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="113" TopLine="103"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="102" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="104" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="105" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="106" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="109" TopLine="103"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="113" TopLine="103"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="102" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="104" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="105" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="108" TopLine="102"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="109" TopLine="102"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="113" TopLine="103"/>
-      </Position>
       <Position>
         <Filename Value="sysexer.pas"/>
         <Caret Line="117" TopLine="110"/>
@@ -143,6 +35,114 @@
       <Position>
         <Filename Value="sysexer.pas"/>
         <Caret Line="116" Column="23" TopLine="110"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="122" Column="4" TopLine="115"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="117" Column="42" TopLine="112"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="119" Column="31" TopLine="113"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="127" Column="5" TopLine="119"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="130" TopLine="127"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="123" TopLine="118"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="131" TopLine="125"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="130" TopLine="120"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="126" TopLine="120"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="111" TopLine="108"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="116" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="123" TopLine="117"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="120" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="114" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="123" TopLine="114"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="114" Column="5" TopLine="114"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="123" TopLine="114"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="114" TopLine="108"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="123" TopLine="117"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="117" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="123" TopLine="117"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="117" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="123" TopLine="117"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="117" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="123" TopLine="117"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="117" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="123" TopLine="117"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -169,9 +169,52 @@
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
+        <Expression Value="y = (length(tempblock)-16)"/>
+        <Source Value="sysexer.pas"/>
+        <Line Value="129"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="sysexer.pas"/>
+        <Line Value="126"/>
+        <LogEvalExpression Value="y"/>
+        <Actions EvalExpression="True"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="sysexer.pas"/>
+        <Line Value="117"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
         <Source Value="sysexer.pas"/>
         <Line Value="119"/>
       </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="sysexer.pas"/>
+        <Line Value="120"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="sysexer.pas"/>
+        <Line Value="123"/>
+      </Item>
     </BreakPoints>
+    <Watches>
+      <Item>
+        <Expression Value="output"/>
+      </Item>
+    </Watches>
   </Debugging>
 </CONFIG>
