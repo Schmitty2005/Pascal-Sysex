@@ -76,6 +76,7 @@ procedure Tsysex.set_filename(fname: string);
 begin
   sysex_filename := fname;
   loadsysex(fname);
+  setBlocks;
   exit();
 end;
 
@@ -114,9 +115,9 @@ begin
         output := output + asciiOut + slineBreak;
         asciiOut :=columnSpace;
       end;
+    end;
   writeln(output);
   Result := output;
-  end;
 end;
 
 function Tsysex.blockTextSlice(block: Qword; startpos, endpos: Qword): string;
@@ -180,13 +181,13 @@ procedure Tsysex.setBlocks();
 begin
   writeln('setBlocks called....');
   writeln(length(sysarray));
+  {
   for single in sysarray do
   begin
-
     Write(single);
     Write(',');
   end;
-
+   }
 end;
 
 procedure Tsysex.loadSysex(fnam: string);

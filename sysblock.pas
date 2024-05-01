@@ -96,6 +96,7 @@ begin
   outpos := countblocks(block);
   writeln('OUTPUT:   ');
 
+  {
   x := 0;
   for blocktest in outpos do
   begin
@@ -109,14 +110,21 @@ begin
     //writeln();
     x := x + 1;
   end;
+   }
 
   sysfile := Tsysex.Create();
-  sysfile.loadSysex('sysextest.syx');
+  //sysfile.loadSysex('sysextest.syx');
   sysfile.filename := 'sysextest.syx';
-  sysfile.setBlocks;
+  //
+  //sysfile.setBlocks;
   //sysfile.blockTextSlice(3 ,12,24); //Should output SY-85 Block Type 0065VC
+  write ('BlockTextSlice Called...... ');
   writeln(sysfile.blockTextslice(3, 12, 24));
+  write('File Name : ');
   writeln(sysfile.filename);
+
+  write('Size of sysex file : ');
   writeln(sysfile.sysex_size);
+  writeln('Block to Hex called.....');
   writeln(sysfile.blocktohex(3));
 end.
