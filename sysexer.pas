@@ -101,22 +101,24 @@ begin
   y := 0;
   for outbyte in tempblock do
   begin
-    output := output + (IntToHEx(outbyte)+ hexSpace);
-    if ((outbyte  <32) or (outbyte > 128)) then
-    asciiout := asciiout + '.'
+    output := output + (IntToHEx(outbyte) + hexSpace);
+    if ((outbyte < 32) or (outbyte > 128)) then
+      asciiout := asciiout + '.'
     else
-    asciiout := asciiout + char(outbyte);
+      asciiout := asciiout + char(outbyte);
     y := y + 1;
-    //Write(IntToHex(outbyte));
-    //Write(' ');
-
+    //@TODO needs to complete last line of ASCII
     if ((y mod 16) = 0) and (y <> 0) then
-      begin
-        output := output + asciiOut + slineBreak;
-        asciiOut :=columnSpace;
-      end;
-    end;
-  writeln(output);
+    begin
+      output := output + asciiOut + slineBreak;
+      asciiOut := columnSpace;
+    end
+    else if (y= length(tempblock) )then
+    //@TODO needs a mod / 16 forumla to add proper spaces for
+    // columns to line up
+    output :=output + asciiOut + sLineBreak;
+  end;
+  //writeln(output);
   Result := output;
 end;
 
@@ -133,7 +135,7 @@ begin
   while x <= endpos do
   begin
     textout := textout + char(sysarray[x]);
-    Write(char(sysarray[x]));
+    //Write(char(sysarray[x]));
     x := x + 1;
   end;
   Result := textout;
@@ -170,9 +172,7 @@ begin
   end;
   Write('W :');
   writeln(w);
-
   setlength(Result, w);
-
   sysex_blocks := output;
   Result := output;
 end;
