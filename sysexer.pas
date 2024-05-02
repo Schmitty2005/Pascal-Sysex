@@ -11,7 +11,9 @@ type
   TblockSE = record
     startPos, endPos: longint;
   end;
+
   Tblocks = array of TblockSE;
+
   Tpoints = array[1..2] of Qword;
 
   Tsysex = class
@@ -90,7 +92,7 @@ const
   columnSpace = '     ';
   hexSpace = '  ';
 var
-  output, asciiOut: string;
+  output, asciiOut, spaceout: string;
   outbyte: byte;
   tempblock: Tsys;
   y, z: Qword;
@@ -99,36 +101,28 @@ begin
   asciiout := columnSpace;
   tempblock := get_block(block);
   y := 0;
+  writeln(length(tempblock));
   for outbyte in tempblock do
   begin
     output := output + (IntToHEx(outbyte) + hexSpace);
-    if ((outbyte < 32) or (outbyte > 128)) then
+    if ((outbyte < 33) or (outbyte > 128)) then
       asciiout := asciiout + '.'
     else
       asciiout := asciiout + char(outbyte);
-    y := y + 1;
-    //@TODO needs to complete last line of ASCII
+    Inc(y);//y := y + 1;
     if ((y mod 16) = 0) and (y <> 0) then
     begin
       output := output + asciiOut + slineBreak;
       asciiOut := columnSpace;
-    end
-    else if ( y >  (length(tempblock)-15)) then
-      while (y<(length(tempblock)-14)) do
-        begin
-         output:=output + '  ' + hexSpace;
-         y:=y+1;
-         //@TODO Extra space seems to be added in asciiOut Routine
-         // with blocks < 16 in length
-        end;
-
-     if (y= length(tempblock) )then
-    //@TODO needs a mod / 16 forumla to add proper spaces for
-    // columns to line up
-        output :=output + columnSpace +  asciiOut + sLineBreak;
+    end;
   end;
-
-  //writeln(output);
+  spaceout := '';
+  if ((length(tempblock) = y) and ((y mod 16) <> 0)) then
+  begin
+    spaceout := spaceout + '  ' + hexSpace;
+    Inc(y);
+  end;
+  output := output + spaceOut + asciiOut + sLineBreak;
   Result := output;
 end;
 
@@ -140,13 +134,10 @@ var
 begin
   textout := '';
   x := startpos;
-  // writeln();
-  //writeln('Block Text Called...');
   while x <= endpos do
   begin
     textout := textout + char(sysarray[x]);
-    //Write(char(sysarray[x]));
-    x := x + 1;
+    Inc(x);//x := x + 1;
   end;
   Result := textout;
 end;
@@ -165,6 +156,7 @@ begin
     if Count[x] = 240 then w := w + 1;
     if Count[x] = 247 then y := y + 1;
   end;
+  //@TODO Needs clarification!
   if ((y + 1) <> w) then writeln('Block count error!')
   else
     setlength(output, w);
@@ -176,8 +168,8 @@ begin
     if Count[x] = 247 then
     begin
       output[y].endpos := x;
-      y := y + 1;
-      w := w + 1;
+      Inc(y);//y := y + 1;
+      Inc(w);//w := w + 1;
     end;
   end;
   Write('W :');
@@ -210,7 +202,7 @@ begin
   try
     n := fstream.Size;
     SetLength(Data, n);
-    fstream.Read(Data[1], n);//this line maybe needs work!
+    fstream.Read(Data[1], n);
   finally
     fstream.Free;
   end;
