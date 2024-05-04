@@ -32,31 +32,45 @@ type
   public
     blockPoints: Tblocks;
     procedure setBlocks;
-    function countblocks(Count: Tsys): Tblocks;
+    function countblocks(const Count: Tsys): Tblocks;
     function blockTextSlice(block: Qword; startpos, endpos: Qword): string;
     function blockToHex(block: Qword): string;
+    function blockChecksumValue(block: Qword): byte;
     procedure loadSysex(fnam: string);
     property get_sysex_blocks: Tblocks read sysex_blocks;
 
   published
     property sysex_size: Qword read get_sysex_size;
     property filename: string read sysex_filename write set_filename;
-    property sysexBlocks : Qword read get_num_blocks;
+    property sysexBlocks: Qword read get_num_blocks;
   end;
 
 
 implementation
 
+function Tsysex.blockChecksumValue(block: Qword): byte;
+var
+  sysblock: Tsys;
+  checksum: byte;
+  pos: qword;
+begin
+  sysblock := get_block(block);
+  pos := (high(sysblock));
+  Dec(pos);
+  Result := sysblock[pos];
+end;
+
 function Tsysex.get_msb_lsb_value(msb, lsb: byte): word;
 begin
   Result := (msb * 128) + lsb;
 end;
+
 function Tsysex.get_num_blocks(): Qword;
 var
   blocks: Tblocks;
 begin
-  blocks:= countblocks(sysArray);
-  result:= high(blocks);
+  blocks := countblocks(sysArray);
+  Result := high(blocks);
   //returns wrong output !
 end;
 
@@ -107,7 +121,7 @@ var
   output, asciiOut, spaceout: string;
   outbyte: byte;
   tempblock: Tsys;
-  y : Qword;
+  y: Qword;
 begin
   if block > high(sysarray) then block := high(sysarray);
 
@@ -156,7 +170,7 @@ begin
   Result := textout;
 end;
 
-function Tsysex.countblocks(Count: Tsys): Tblocks;
+function Tsysex.countblocks(const Count: Tsys): Tblocks;
 var
   output: Tblocks;
   w, x, y, z: Qword;

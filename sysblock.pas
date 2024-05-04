@@ -127,13 +127,16 @@ begin
   //Write('Size of sysex file : ');
   writeln(sysfile.sysex_size);
  /// //('Block to Hex called.....');
- // writeln(sysfile.blocktohex(354));
+ writeln(sysfile.blocktohex(0));
 //writeln(sysfile.sysexBlocks);
- y:=0;
+{
+y:=0;
   while (y<sysfile.sysexBlocks)  do
   begin
     writeln('                       Y: )' + y.toString);
    write ( sysfile.blocktohex(y));
    inc(y);
   end;
+ }
+  writeln( sysfile.blockchecksumvalue(0)) ;
 end.

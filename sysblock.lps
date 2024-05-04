@@ -7,39 +7,23 @@
       <Unit>
         <Filename Value="sysblock.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="119"/>
-        <CursorPos X="41" Y="139"/>
+        <TopLine Value="122"/>
+        <CursorPos X="80" Y="134"/>
         <FoldState Value=" T6i822 T1iB2V6"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="33"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="sysexer.pas"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="102"/>
-        <CursorPos X="58" Y="112"/>
-        <UsageCount Value="17"/>
+        <TopLine Value="32"/>
+        <CursorPos X="32" Y="35"/>
+        <UsageCount Value="18"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="117"/>
-      </Position>
       <Position>
         <Filename Value="sysexer.pas"/>
         <Caret Line="120" Column="6" TopLine="111"/>
@@ -144,6 +128,22 @@
         <Filename Value="sysexer.pas"/>
         <Caret Line="114" Column="3" TopLine="109"/>
       </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="59" Column="31" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="58" Column="35" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="62" Column="26" TopLine="48"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="173" Column="35" TopLine="170"/>
+      </Position>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -159,6 +159,8 @@
       <List Name="LaunchingApplication" Type="File" Count="1">
         <Item1 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
       </List>
+      <List Name="WorkingDirectory" Type="File" Count="1"/>
+      <List Name="CommandLineParameters" Count="1"/>
     </HistoryLists>
   </ProjectSession>
   <Debugging>
