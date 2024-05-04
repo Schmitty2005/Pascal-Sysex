@@ -15,6 +15,7 @@ var
   outpos: Tblocks;
   x: Qword;
   z: byte;
+  y : Qword;
 
   sysfile: Tsysex;
 
@@ -123,8 +124,16 @@ begin
   Write('File Name : ');
   writeln(sysfile.filename);
 
-  Write('Size of sysex file : ');
+  //Write('Size of sysex file : ');
   writeln(sysfile.sysex_size);
-  writeln('Block to Hex called.....');
-  writeln(sysfile.blocktohex(3));
+ /// //('Block to Hex called.....');
+ // writeln(sysfile.blocktohex(354));
+//writeln(sysfile.sysexBlocks);
+ y:=0;
+  while (y<sysfile.sysexBlocks)  do
+  begin
+    writeln('                       Y: )' + y.toString);
+   write ( sysfile.blocktohex(y));
+   inc(y);
+  end;
 end.

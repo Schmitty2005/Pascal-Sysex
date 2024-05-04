@@ -7,94 +7,23 @@
       <Unit>
         <Filename Value="sysblock.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="44"/>
-        <CursorPos X="30" Y="28"/>
-        <UsageCount Value="31"/>
+        <TopLine Value="119"/>
+        <CursorPos X="41" Y="139"/>
+        <FoldState Value=" T6i822 T1iB2V6"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="sysexer.pas"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="192"/>
-        <CursorPos X="14" Y="222"/>
+        <TopLine Value="102"/>
+        <CursorPos X="58" Y="112"/>
         <UsageCount Value="17"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="119" TopLine="113"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="113"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="113"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="113"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="113"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="124"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="122" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="121" TopLine="117"/>
-      </Position>
       <Position>
         <Filename Value="sysexer.pas"/>
         <Caret Line="122" TopLine="117"/>
@@ -143,6 +72,78 @@
         <Filename Value="sysexer.pas"/>
         <Caret Line="138" Column="17" TopLine="135"/>
       </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="154" Column="17" TopLine="143"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="59" Column="17" TopLine="48"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="99" Column="5" TopLine="85"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="133" Column="5" TopLine="119"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="179" Column="5" TopLine="165"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="34" Column="14" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="54" Column="41" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="52" Column="33" TopLine="39"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="30" Column="7" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="43" Column="39" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="30" Column="14" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="56" Column="31" TopLine="46"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="130" Column="35" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="136" Column="3" TopLine="118"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="134" Column="35" TopLine="120"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="136" Column="6" TopLine="120"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="132" Column="8" TopLine="119"/>
+      </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="114" Column="3" TopLine="109"/>
+      </Position>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -158,8 +159,6 @@
       <List Name="LaunchingApplication" Type="File" Count="1">
         <Item1 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
       </List>
-      <List Name="WorkingDirectory" Type="File" Count="1"/>
-      <List Name="CommandLineParameters" Count="1"/>
     </HistoryLists>
   </ProjectSession>
   <Debugging>

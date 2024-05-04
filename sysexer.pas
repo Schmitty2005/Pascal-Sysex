@@ -21,12 +21,14 @@ type
     sysex_filename: string;
     sysex_blocks: Tblocks;
     sysarray: Tsys;
-    single: byte;
+    //single: byte;
     function get_sysex_size(): Qword;
     function get_filename: string;
     procedure set_filename(fname: string);
     function get_block(blockNumber: Qword): Tsys;
     function get_msb_lsb_value(msb, lsb: byte): word;
+    function get_num_blocks(): Qword;
+    //function get_msb_lsb_value(msb, lsb: byte): word;
   public
     blockPoints: Tblocks;
     procedure setBlocks;
@@ -39,6 +41,7 @@ type
   published
     property sysex_size: Qword read get_sysex_size;
     property filename: string read sysex_filename write set_filename;
+    property sysexBlocks : Qword read get_num_blocks;
   end;
 
 
@@ -48,14 +51,23 @@ function Tsysex.get_msb_lsb_value(msb, lsb: byte): word;
 begin
   Result := (msb * 128) + lsb;
 end;
+function Tsysex.get_num_blocks(): Qword;
+var
+  blocks: Tblocks;
+begin
+  blocks:= countblocks(sysArray);
+  result:= high(blocks);
+  //returns wrong output !
+end;
 
 function Tsysex.get_block(blockNumber: Qword): Tsys;
 var
   blockPoints: TblockSE;
-  blockData: Tsys;
+  //blockData: Tsys;
   output: Tsys;
   startpos, endpos, x, y: Qword;
 begin
+  output := nil;
   blockPoints := sysex_blocks[blockNumber];
   startpos := blockPoints.startpos;
   endpos := blockPoints.endpos;
@@ -95,8 +107,10 @@ var
   output, asciiOut, spaceout: string;
   outbyte: byte;
   tempblock: Tsys;
-  y, z: Qword;
+  y : Qword;
 begin
+  if block > high(sysarray) then block := high(sysarray);
+
   output := '';
   asciiout := columnSpace;
   tempblock := get_block(block);
@@ -129,7 +143,7 @@ end;
 function Tsysex.blockTextSlice(block: Qword; startpos, endpos: Qword): string;
 var
   textout: string;
-  blockSys: Tsys;
+  //blockSys: Tsys;
   x: Qword;
 begin
   textout := '';
@@ -151,6 +165,7 @@ begin
   y := 0;
   z := high(Count);
   w := 0;
+  output := nil;
   for x := 0 to z do
   begin
     if Count[x] = 240 then w := w + 1;
@@ -174,7 +189,7 @@ begin
   end;
   Write('W :');
   writeln(w);
-  setlength(Result, w);
+  //setlength(Result, w);
   sysex_blocks := output;
   Result := output;
 end;
@@ -220,4 +235,5 @@ finalization
   begin
 
   end;
+
 end.
