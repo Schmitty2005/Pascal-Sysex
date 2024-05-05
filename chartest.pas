@@ -1,24 +1,21 @@
 {$MODE DELPHI}
 {$codepage utf-8}
 
-program chartest;
+Program chartest;
 
-uses sysutils;
+Uses sysutils;
 
-const
-   TOP_HORIZONTAL :string = #$02550;
-var
-x : word;
+Const 
+  TOP_HORIZONTAL : string = #$02550;
 
-begin
-x:=0;
-while x < 80 do
-begin
+Var 
+  x : word;
 
-
-write(TOP_HORIZONTAL);
-inc(x);
-end;
-
-end.
-
+Begin
+  x := 0;
+  While x < 80 Do
+    Begin
+      write(TOP_HORIZONTAL);
+      inc(x);
+    End;
+End.

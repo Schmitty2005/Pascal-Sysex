@@ -139,4 +139,5 @@ y:=0;
   end;
  }
   writeln( sysfile.blockchecksumvalue(0)) ;
+  sysfile.free;
 end.
