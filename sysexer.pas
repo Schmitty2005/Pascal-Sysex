@@ -28,6 +28,7 @@ type
     function get_block(blockNumber: Qword): Tsys;
     function get_msb_lsb_value(msb, lsb: byte): word;
     function get_num_blocks(): Qword;
+    //function read_variable_length (block:Qword, startPost : Qword)
     //function get_msb_lsb_value(msb, lsb: byte): word;
   public
     blockPoints: Tblocks;
