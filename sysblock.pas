@@ -7,7 +7,7 @@ A testing ground for the sysexer.pas methods
 }
 uses
   SysUtils,
-  sysexer, midiUnits;
+  sysexer, midiUnits, midier;
 
 var
   blocktest: Tblockse;
@@ -16,6 +16,7 @@ var
   x: Qword;
   z: byte;
   y : Qword;
+  doubleMidi : Tmsblsb;
 
   sysfile: Tsysex;
 
@@ -140,4 +141,6 @@ y:=0;
  }
   writeln( sysfile.blockchecksumvalue(0)) ;
   sysfile.free;
+  doublemidi.create();
+  doublemidi.Value:=34534;
 end.

@@ -33,6 +33,10 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="midiUnits"/>
       </Unit>
+      <Unit>
+        <Filename Value="midier.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

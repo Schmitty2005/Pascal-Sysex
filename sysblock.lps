@@ -7,18 +7,17 @@
       <Unit>
         <Filename Value="sysblock.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="4"/>
-        <CursorPos X="21" Y="10"/>
-        <FoldState Value=" T6i822 T1iB2V6"/>
-        <UsageCount Value="34"/>
+        <CursorPos X="28" Y="145"/>
+        <FoldState Value=" T6i922 T1iC2VF"/>
+        <UsageCount Value="35"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="sysexer.pas"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="12"/>
-        <CursorPos Y="17"/>
-        <UsageCount Value="18"/>
+        <TopLine Value="220"/>
+        <CursorPos X="18" Y="240"/>
+        <UsageCount Value="19"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -27,33 +26,22 @@
         <UnitName Value="midiUnits"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="13"/>
-        <CursorPos X="50" Y="20"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="31"/>
+        <CursorPos X="5" Y="41"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="midier.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="5"/>
+        <CursorPos X="17" Y="24"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="142" Column="32" TopLine="129"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="144" Column="10" TopLine="139"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="138" Column="17" TopLine="135"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="154" Column="17" TopLine="143"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="59" Column="17" TopLine="48"/>
-      </Position>
       <Position>
         <Filename Value="sysexer.pas"/>
         <Caret Line="99" Column="5" TopLine="85"/>
@@ -153,6 +141,26 @@
       <Position>
         <Filename Value="midiunits.pas"/>
         <Caret Line="9"/>
+      </Position>
+      <Position>
+        <Filename Value="midiunits.pas"/>
+        <Caret Line="40" Column="26" TopLine="20"/>
+      </Position>
+      <Position>
+        <Filename Value="midiunits.pas"/>
+        <Caret Line="11" Column="13"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="145" Column="28"/>
+      </Position>
+      <Position>
+        <Filename Value="midiunits.pas"/>
+        <Caret Line="41" Column="27" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="midiunits.pas"/>
+        <Caret Line="11" Column="22"/>
       </Position>
     </JumpHistory>
     <RunParams>
