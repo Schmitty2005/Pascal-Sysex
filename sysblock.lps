@@ -7,11 +7,10 @@
       <Unit>
         <Filename Value="sysblock.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="4"/>
         <CursorPos X="21" Y="10"/>
         <FoldState Value=" T6i822 T1iB2V6"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -26,9 +25,10 @@
         <Filename Value="midiunits.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="midiUnits"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="9"/>
-        <CursorPos X="6" Y="26"/>
+        <TopLine Value="13"/>
+        <CursorPos X="50" Y="20"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
