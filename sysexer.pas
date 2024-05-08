@@ -13,7 +13,6 @@ type
   end;
 
   Tblocks = array of TblockSE;
-
   Tpoints = array[1..2] of Qword;
 
   Tsysex = class

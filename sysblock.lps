@@ -7,43 +7,33 @@
       <Unit>
         <Filename Value="sysblock.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="122"/>
-        <CursorPos X="80" Y="134"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="4"/>
+        <CursorPos X="21" Y="10"/>
         <FoldState Value=" T6i822 T1iB2V6"/>
         <UsageCount Value="33"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="sysexer.pas"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="32"/>
-        <CursorPos X="32" Y="35"/>
+        <TopLine Value="12"/>
+        <CursorPos Y="17"/>
         <UsageCount Value="18"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="midiunits.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="midiUnits"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="9"/>
+        <CursorPos X="6" Y="26"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="120" Column="6" TopLine="111"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="116" Column="9" TopLine="113"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="140" Column="23" TopLine="130"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="139" Column="31" TopLine="133"/>
-      </Position>
-      <Position>
-        <Filename Value="sysexer.pas"/>
-        <Caret Line="146" Column="55" TopLine="121"/>
-      </Position>
       <Position>
         <Filename Value="sysexer.pas"/>
         <Caret Line="142" Column="32" TopLine="129"/>
@@ -144,6 +134,26 @@
         <Filename Value="sysexer.pas"/>
         <Caret Line="173" Column="35" TopLine="170"/>
       </Position>
+      <Position>
+        <Filename Value="sysexer.pas"/>
+        <Caret Line="26" Column="56" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="midiunits.pas"/>
+        <Caret Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="midiunits.pas"/>
+        <Caret Line="22" Column="20" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="10" Column="21" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="midiunits.pas"/>
+        <Caret Line="9"/>
+      </Position>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -159,8 +169,6 @@
       <List Name="LaunchingApplication" Type="File" Count="1">
         <Item1 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
       </List>
-      <List Name="WorkingDirectory" Type="File" Count="1"/>
-      <List Name="CommandLineParameters" Count="1"/>
     </HistoryLists>
   </ProjectSession>
   <Debugging>

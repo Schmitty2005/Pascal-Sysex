@@ -7,7 +7,7 @@ A testing ground for the sysexer.pas methods
 }
 uses
   SysUtils,
-  sysexer;
+  sysexer, midiUnits;
 
 var
   blocktest: Tblockse;

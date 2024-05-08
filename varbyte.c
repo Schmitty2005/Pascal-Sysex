@@ -1,5 +1,7 @@
 // from Standard MIDI File Format.pdf
 //
+#include <stdbool.h>
+#include <stdio.h>
 WriteVarLen(value)
 register long value;
 {
@@ -28,7 +30,7 @@ if((value = getc(infile)) & 0x80)
 value &= 0x7f;
 do
 {
-value = (value << 7) + ((c = getc(infile))) & 0x7f);
+value = (value << 7) + ((c = getc(infile)) & 0x7f);
 } while (c & 0x80);
 }
 return(value);
