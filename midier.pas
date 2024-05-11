@@ -20,13 +20,16 @@ type
     chunkSize: Dword;
   end;
 
+  PTTrackChunk = ^TTrackChunk;
+  PTMIDIHeader = ^TMIDIHeader;
+
   Tmidier = class
   private
     midiHeader: TMIDIHeader;
     midiFileName: string;
     midiFileBytes: array of byte;
-    m_pointer: Pointer;
     procedure loadMIDIfile(fnam: string);
+
   public
     procedure getHeader;
     property filename: string read midiFileName write loadMIDIfile;
@@ -37,13 +40,11 @@ implementation
 procedure Tmidier.getHeader;
 var
   PmidiHeader: ^TMIDIHeader;
-  outputHeader: TmidiHeader;
 begin
   PmidiHeader := Pointer(midiFileBytes);// Dynamic arrays are pointers.
-  outputHeader := PmidiHeader^;
-  midiHeader.chunkSize := BEtoN(outputheader.chunkSize);
-  midiHeader.formatType := BEtoN(outputheader.formatType);
-  midiHeader.numTracks := BEtoN(outputHeader.numTracks);
+  midiHeader.chunkSize := BEtoN(PmidiHeader^.chunkSize);
+  midiHeader.formatType := BEtoN(PmidiHeader^.formatType);
+  midiHeader.numTracks := BEtoN(PmidiHeader^.numTracks);
 end;
 
 procedure Tmidier.loadMIDIfile(fnam: string);

@@ -7,8 +7,8 @@
       <Unit>
         <Filename Value="sysblock.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="133"/>
-        <CursorPos X="24" Y="147"/>
+        <TopLine Value="134"/>
+        <CursorPos X="14" Y="147"/>
         <FoldState Value=" T6i922 T1iC2VF"/>
         <UsageCount Value="40"/>
         <Loaded Value="True"/>
@@ -28,8 +28,8 @@
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="34"/>
-        <CursorPos X="40" Y="43"/>
+        <TopLine Value="36"/>
+        <CursorPos X="29" Y="39"/>
         <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit>
@@ -43,18 +43,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="sysblock.pas"/>
-        <Caret Line="147" Column="26" TopLine="133"/>
-      </Position>
-      <Position>
-        <Filename Value="midier.pas"/>
-        <Caret Line="46" TopLine="38"/>
-      </Position>
-      <Position>
-        <Filename Value="midier.pas"/>
-        <Caret Line="48" TopLine="38"/>
-      </Position>
       <Position>
         <Filename Value="midier.pas"/>
         <Caret Line="50" TopLine="38"/>
@@ -163,6 +151,18 @@
         <Filename Value="midier.pas"/>
         <Caret Line="42" Column="6" TopLine="40"/>
       </Position>
+      <Position>
+        <Filename Value="midier.pas"/>
+        <Caret Line="43" Column="45" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="147" Column="14" TopLine="134"/>
+      </Position>
+      <Position>
+        <Filename Value="midier.pas"/>
+        <Caret Line="31" Column="25" TopLine="22"/>
+      </Position>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -187,7 +187,7 @@
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="midier.pas"/>
-        <Line Value="48"/>
+        <Line Value="45"/>
       </Item>
     </BreakPoints>
     <Watches>
