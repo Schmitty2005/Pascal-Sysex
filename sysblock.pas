@@ -144,7 +144,7 @@ y:=0;
   doublemidi:= Tmidier.create();
 
   doublemidi.filename := 'rushmidi.mid';
-  doublemidi.getheader;
+
 
   //doublemidi.setBytes(65536);
 end.

@@ -6,7 +6,9 @@ interface
 uses
   Classes, SysUtils;
 
+
 type
+
   TMIDIHeader = bitpacked record
     chunkID: array[0..3] of char;  //Always 'MThd' 0x4D546864
     chunkSize: Dword;
@@ -23,12 +25,18 @@ type
   PTTrackChunk = ^TTrackChunk;
   PTMIDIHeader = ^TMIDIHeader;
 
+
+
   Tmidier = class
   private
     midiHeader: TMIDIHeader;
     midiFileName: string;
     midiFileBytes: array of byte;
+    fileTrackPointers : array of PTTrackChunk;
     procedure loadMIDIfile(fnam: string);
+    function getFirstTrackPos : Pointer;
+    procedure setTrackPointers;
+    function getNextTrackPos(previousTrack : PTTrackChunk) : PTTrackChunk ; inline;
 
   public
     procedure getHeader;
@@ -47,6 +55,38 @@ begin
   midiHeader.numTracks := BEtoN(PmidiHeader^.numTracks);
 end;
 
+procedure Tmidier.setTrackPointers;
+var
+  x : Qword;
+begin
+  x:=1;
+  setlength(self.fileTrackPointers, (self.midiHeader.numTracks)+1);
+  fileTrackPointers[0]:= self.GetFirstTrackPos;
+  if (x <= (self.midiHeader.numTracks))  then
+    begin
+      fileTrackPointers[x] := self.getNextTrackPos(fileTrackPointers[x-1]);
+      inc(x);
+    end;
+
+    end;
+
+function  readTrackSize(blockStart : PTTrackChunk): Qword; inline;
+begin
+     result:= BEtoN(blockstart^.chunkSize);
+end;
+
+function Tmidier.getFirstTrackPos : Pointer; inline;
+begin
+     result := Pointer(midiFileBytes) + sizeof(TMIDIHeader);
+end;
+
+function Tmidier.getNextTrackPos(previousTrack : PTTrackChunk) : PTTrackChunk ; inline;
+begin
+  try
+  result := (Pointer(previousTrack) + (BEtoN(previousTrack^.chunkSize)) + 8);
+  except writeln('ERROR'); end;
+  end;
+
 procedure Tmidier.loadMIDIfile(fnam: string);
 var
   fstream: TFileStream;
@@ -62,6 +102,8 @@ begin
     fstream.Free;
   end;
   midiFileBytes := Data;
+  self.getheader;
+  self.setTrackPointers;
 end;
 
 
