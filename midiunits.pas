@@ -7,7 +7,7 @@ uses
   Classes, SysUtils;
 
 type
-  pbyte = Pointer ; //^byte;
+  pbyte = Pointer; //^byte;
   Pvalue = Pointer;//^word;
 
 
@@ -45,9 +45,9 @@ begin
 
   p_value := toConvert;
 
-  Pointmsb  := @p_value;
-  Pointlsb := (Pointmsb+ 1);
-     temp := byte(Pointlsb^);
+  Pointmsb := @p_value;
+  Pointlsb := (Pointmsb + 1);
+  temp := byte(Pointlsb^);
   ;
 end;
 

@@ -6,7 +6,6 @@ interface
 uses
   Classes, SysUtils;
 
-
 type
 
   TMIDIHeader = bitpacked record
@@ -32,12 +31,11 @@ type
     midiHeader: TMIDIHeader;
     midiFileName: string;
     midiFileBytes: array of byte;
-    fileTrackPointers : array of PTTrackChunk;
+    fileTrackPointers: array of PTTrackChunk;
     procedure loadMIDIfile(fnam: string);
-    function getFirstTrackPos : Pointer;
+    function getFirstTrackPos: Pointer;
     procedure setTrackPointers;
-    function getNextTrackPos(previousTrack : PTTrackChunk) : PTTrackChunk ;
-
+    function getNextTrackPos(previousTrack: PTTrackChunk): PTTrackChunk;
   public
     procedure getHeader;
     property filename: string read midiFileName write loadMIDIfile;
@@ -57,35 +55,37 @@ end;
 
 procedure Tmidier.setTrackPointers;
 var
-  x : Qword;
+  x: Qword;
 begin
-  x:=1;
-  setlength(self.fileTrackPointers, (self.midiHeader.numTracks)+1);
-  fileTrackPointers[0]:= self.GetFirstTrackPos;
-  if (x <= (self.midiHeader.numTracks))  then
-    begin
-      fileTrackPointers[x] := self.getNextTrackPos(fileTrackPointers[x-1]);
-      inc(x);
-    end;
+  x := 1;
+  setlength(self.fileTrackPointers, (self.midiHeader.numTracks) + 1);
+  fileTrackPointers[0] := self.GetFirstTrackPos;
+  if (x <= (self.midiHeader.numTracks)) then
+  begin
+    fileTrackPointers[x] := self.getNextTrackPos(fileTrackPointers[x - 1]);
+    Inc(x);
+  end;
 
-    end;
-
-function  readTrackSize(blockStart : PTTrackChunk): Qword; inline;
-begin
-     result:= BEtoN(blockstart^.chunkSize);
 end;
 
-function Tmidier.getFirstTrackPos : Pointer; inline;
+function readTrackSize(blockStart: PTTrackChunk): Qword; inline;
 begin
-     result := Pointer(midiFileBytes) + sizeof(TMIDIHeader);
+  Result := BEtoN(blockstart^.chunkSize);
 end;
 
-function Tmidier.getNextTrackPos(previousTrack : PTTrackChunk) : PTTrackChunk ;
+function Tmidier.getFirstTrackPos: Pointer; inline;
+begin
+  Result := Pointer(midiFileBytes) + sizeof(TMIDIHeader);
+end;
+
+function Tmidier.getNextTrackPos(previousTrack: PTTrackChunk): PTTrackChunk;
 begin
   try
-  result := (Pointer(previousTrack) + (BEtoN(previousTrack^.chunkSize)) + 8);
-  except writeln('ERROR'); end;
+    Result := (Pointer(previousTrack) + (BEtoN(previousTrack^.chunkSize)) + 8);
+  except
+    writeln('ERROR');
   end;
+end;
 
 procedure Tmidier.loadMIDIfile(fnam: string);
 var

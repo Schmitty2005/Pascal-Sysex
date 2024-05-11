@@ -7,7 +7,9 @@ A testing ground for the sysexer.pas methods
 }
 uses
   SysUtils,
-  sysexer, midiUnits, midier;
+  sysexer,
+  midiUnits,
+  midier;
 
 var
   blocktest: Tblockse;
@@ -15,8 +17,8 @@ var
   outpos: Tblocks;
   x: Qword;
   z: byte;
-  y : Qword;
-  doubleMidi : Tmidier;
+  y: Qword;
+  doubleMidi: Tmidier;
 
   sysfile: Tsysex;
 
@@ -127,9 +129,9 @@ begin
 
   //Write('Size of sysex file : ');
   writeln(sysfile.sysex_size);
- /// //('Block to Hex called.....');
- writeln(sysfile.blocktohex(0));
-//writeln(sysfile.sysexBlocks);
+  /// //('Block to Hex called.....');
+  writeln(sysfile.blocktohex(0));
+  //writeln(sysfile.sysexBlocks);
 {
 y:=0;
   while (y<sysfile.sysexBlocks)  do
@@ -139,9 +141,9 @@ y:=0;
    inc(y);
   end;
  }
-  writeln( sysfile.blockchecksumvalue(0)) ;
-  sysfile.free;
-  doublemidi:= Tmidier.create();
+  writeln(sysfile.blockchecksumvalue(0));
+  sysfile.Free;
+  doublemidi := Tmidier.Create();
 
   doublemidi.filename := 'rushmidi.mid';
 
