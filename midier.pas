@@ -36,7 +36,7 @@ type
     procedure loadMIDIfile(fnam: string);
     function getFirstTrackPos : Pointer;
     procedure setTrackPointers;
-    function getNextTrackPos(previousTrack : PTTrackChunk) : PTTrackChunk ; inline;
+    function getNextTrackPos(previousTrack : PTTrackChunk) : PTTrackChunk ;
 
   public
     procedure getHeader;
@@ -80,7 +80,7 @@ begin
      result := Pointer(midiFileBytes) + sizeof(TMIDIHeader);
 end;
 
-function Tmidier.getNextTrackPos(previousTrack : PTTrackChunk) : PTTrackChunk ; inline;
+function Tmidier.getNextTrackPos(previousTrack : PTTrackChunk) : PTTrackChunk ;
 begin
   try
   result := (Pointer(previousTrack) + (BEtoN(previousTrack^.chunkSize)) + 8);
@@ -94,6 +94,7 @@ var
   Data: array of byte;
 begin
   fstream := TFileStream.Create(fnam, fmOpenRead or fmShareDenyWrite);
+  Data := nil;
   try
     n := fstream.Size;
     SetLength(Data, n);

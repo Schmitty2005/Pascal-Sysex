@@ -28,8 +28,8 @@
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="55"/>
-        <CursorPos X="13" Y="60"/>
+        <TopLine Value="93"/>
+        <CursorPos X="15" Y="97"/>
         <UsageCount Value="33"/>
         <Loaded Value="True"/>
       </Unit>
@@ -43,10 +43,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="midier.pas"/>
-        <Caret Line="67" TopLine="63"/>
-      </Position>
       <Position>
         <Filename Value="midier.pas"/>
         <Caret Line="69" TopLine="63"/>
@@ -162,6 +158,10 @@
       <Position>
         <Filename Value="midier.pas"/>
         <Caret Line="89" TopLine="76"/>
+      </Position>
+      <Position>
+        <Filename Value="midier.pas"/>
+        <Caret Line="39" Column="76" TopLine="33"/>
       </Position>
     </JumpHistory>
     <RunParams>
