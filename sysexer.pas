@@ -231,6 +231,7 @@ begin
   try
     n := fstream.Size;
     SetLength(Data, n);
+    //fstream.Read(Data[0], n);//changed on 5-10-204; may have bad results!
     fstream.Read(Data[1], n);
   finally
     fstream.Free;

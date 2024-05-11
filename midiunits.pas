@@ -10,18 +10,7 @@ type
   pbyte = Pointer ; //^byte;
   Pvalue = Pointer;//^word;
 
-  TMIDIHeader = bitpacked record
-     chunkID : Array[0..3] of char;  //Always 'MThd' 0x4D546864
-     chunkSize : Dword;
-     formatType : word;              // 0, 1, OR 2
-     numTracks : word;
-     timeDivision : word;
-  end;
 
-  TTrackChunk = bitpacked record
-     chunkID : Array [0..3] of char; //Always 'MTrk' 0x4D54726B
-     chunkSize : Dword;
-  end;
 
   Tmsblsb = class
   private

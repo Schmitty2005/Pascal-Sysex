@@ -16,7 +16,7 @@ var
   x: Qword;
   z: byte;
   y : Qword;
-  doubleMidi : Tmsblsb;
+  doubleMidi : Tmidier;
 
   sysfile: Tsysex;
 
@@ -141,7 +141,10 @@ y:=0;
  }
   writeln( sysfile.blockchecksumvalue(0)) ;
   sysfile.free;
-  doublemidi:= Tmsblsb.create();
-  doublemidi.Value:=65535;
+  doublemidi:= Tmidier.create();
+
+  doublemidi.filename := 'rushmidi.mid';
+  doublemidi.getheader;
+
   //doublemidi.setBytes(65536);
 end.
