@@ -141,6 +141,7 @@ y:=0;
  }
   writeln( sysfile.blockchecksumvalue(0)) ;
   sysfile.free;
-  doublemidi.create();
-  doublemidi.Value:=34534;
+  doublemidi:= Tmsblsb.create();
+  doublemidi.Value:=65535;
+  //doublemidi.setBytes(65536);
 end.

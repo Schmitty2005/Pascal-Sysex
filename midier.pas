@@ -1,20 +1,19 @@
-unit midier;
-
 {$mode Delphi}
+unit midier;
 
 interface
 
 uses
   Classes, SysUtils;
 
-Type
+type
   Tmidier = class
-    private
-      midiFileName : String;
-      midiFileBytes : array of Byte;
-      procedure loadSysex(fnam: string);
-    public
-      property filename : String read midiFileName;
+  private
+    midiFileName: string;
+    midiFileBytes: array of byte;
+    procedure loadSysex(fnam: string);
+  public
+    property filename: string read midiFileName;
   end;
 
 implementation
@@ -38,4 +37,3 @@ end;
 
 
 end.
-
