@@ -16,7 +16,6 @@ type
   private
     p_msb: byte;
     p_lsb: byte;
-
     PointValue: Pvalue;
     Pointmsb: pbyte;
     Pointlsb: pbyte;

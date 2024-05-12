@@ -21,6 +21,11 @@ type
     chunkSize: Dword;
   end;
 
+
+
+
+
+
   PTTrackChunk = ^TTrackChunk;
   PTMIDIHeader = ^TMIDIHeader;
 

@@ -37,6 +37,11 @@
         <Filename Value="midier.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit>
+      <Unit>
+        <Filename Value="miditrack.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="midiTrack"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

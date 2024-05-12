@@ -9,7 +9,7 @@ uses
   SysUtils,
   sysexer,
   midiUnits,
-  midier;
+  midier, midiTrack;
 
 var
   blocktest: Tblockse;
@@ -48,7 +48,7 @@ var
       y := y + 1;
     end;
     build[x - 1] := 247;
-    builder := build;
+    result := build;
   end;
 
   function countblocks(Count: Tsys): Tblocks;
