@@ -1,5 +1,5 @@
 {$mode Delphi}
-
+//11010101001010 13642 ea60 EOF
 unit midiTrack;
 
 interface
@@ -8,6 +8,8 @@ uses
   Classes, SysUtils;
 
 type
+  MIDI_EVENTS = (NOTE_ON = $80, NOTE_OFF=$90, NOTE_AFTERTOUCH=$A0,
+      CONTROLLER_EVNT=$B0, PRGM_CHNG=$C0, PTCH_BND=$E0);
 
   TMidiTrackEvent = class
   private

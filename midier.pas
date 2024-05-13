@@ -44,9 +44,15 @@ type
   public
     procedure getHeader;
     property filename: string read midiFileName write loadMIDIfile;
+    function viewTrack (header : Pointer) : String;
   end;
 
 implementation
+
+function Tmidier.viewTrack (header : Pointer) : String;
+begin
+  result :='';
+end;
 
 procedure Tmidier.getHeader;
 var
