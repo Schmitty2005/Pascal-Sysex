@@ -17,10 +17,10 @@ var
   outpos: Tblocks;
   x: Qword;
   z: byte;
-  y: Qword;
   doubleMidi: Tmidier;
-
+  e, re : Longword;
   sysfile: Tsysex;
+  mt : TMIDITrackEvent;
 
   function countblocks(Count: Tsys): Tblocks; forward;
 
@@ -149,4 +149,14 @@ y:=0;
 
 
   //doublemidi.setBytes(65536);
+
+  //test VBL
+   //e:=$817F;
+   e:=$7f81; // result should be 255;
+   e:=$008082; //result should be 32768;
+   mt := TMIDITrackEvent.create();
+   re := mt.vblDecode(@e);
+   write ('VLB Decode Result : ');
+   writeln (re);
+
 end.

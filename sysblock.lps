@@ -7,9 +7,9 @@
       <Unit>
         <Filename Value="sysblock.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="2"/>
-        <CursorPos X="20" Y="12"/>
-        <UsageCount Value="50"/>
+        <TopLine Value="143"/>
+        <CursorPos X="41" Y="156"/>
+        <UsageCount Value="51"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -19,7 +19,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="22"/>
         <CursorPos X="17" Y="18"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -28,7 +28,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="32"/>
         <CursorPos X="6" Y="53"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -37,9 +37,9 @@
         <UnitName Value="midiTrack"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="3"/>
-        <CursorPos X="55" Y="12"/>
-        <UsageCount Value="23"/>
+        <TopLine Value="60"/>
+        <CursorPos X="14" Y="70"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -47,87 +47,11 @@
         <EditorIndex Value="1"/>
         <TopLine Value="116"/>
         <CursorPos Y="196"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="28" Column="15" TopLine="11"/>
-      </Position>
-      <Position>
-        <Filename Value="sysblock.pas"/>
-        <Caret Line="12" Column="20" TopLine="2"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="12" Column="16" TopLine="4"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="14" Column="4" TopLine="9"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="11" Column="2"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="14" Column="5" TopLine="4"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="12" Column="24" TopLine="4"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="5" Column="11"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="29" TopLine="10"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="12" Column="24" TopLine="4"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="19" Column="35" TopLine="12"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="29" Column="29" TopLine="11"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="19" Column="50" TopLine="9"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="18" Column="42" TopLine="9"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="14" Column="6" TopLine="8"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="18" Column="38" TopLine="8"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="20" Column="25" TopLine="10"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="21" Column="41" TopLine="11"/>
-      </Position>
-      <Position>
-        <Filename Value="miditrack.pas"/>
-        <Caret Line="29" Column="33" TopLine="11"/>
-      </Position>
       <Position>
         <Filename Value="miditrack.pas"/>
         <Caret Line="31" Column="29" TopLine="16"/>
@@ -172,13 +96,89 @@
         <Filename Value="miditrack.pas"/>
         <Caret Line="12" Column="3"/>
       </Position>
+      <Position>
+        <Filename Value="miditrack.pas"/>
+        <Caret Line="71" Column="22" TopLine="57"/>
+      </Position>
+      <Position>
+        <Filename Value="miditrack.pas"/>
+        <Caret Line="60" Column="36" TopLine="58"/>
+      </Position>
+      <Position>
+        <Filename Value="miditrack.pas"/>
+        <Caret Line="31" Column="62" TopLine="24"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="17" Column="19" TopLine="3"/>
+      </Position>
+      <Position>
+        <Filename Value="miditrack.pas"/>
+        <Caret Line="71" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="156" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="157" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="158" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="miditrack.pas"/>
+        <Caret Line="69" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="156" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="158" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="156" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="157" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="158" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="160" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="156" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="sysblock.pas"/>
+        <Caret Line="157" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="miditrack.pas"/>
+        <Caret Line="72" Column="16" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="miditrack.pas"/>
+        <Caret Line="70" Column="16" TopLine="59"/>
+      </Position>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode="default">
         <Mode Name="default">
           <local>
-            <LaunchingApplication PathPlusParams="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
+            <LaunchingApplication Use="True" PathPlusParams="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
           </local>
         </Mode>
       </Modes>
@@ -187,6 +187,8 @@
       <List Name="LaunchingApplication" Type="File" Count="1">
         <Item1 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
       </List>
+      <List Name="WorkingDirectory" Type="File" Count="1"/>
+      <List Name="CommandLineParameters" Count="1"/>
     </HistoryLists>
   </ProjectSession>
   <Debugging>
