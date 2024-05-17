@@ -10,8 +10,6 @@ type
   pbyte = Pointer; //^byte;
   Pvalue = Pointer;//^word;
 
-
-
   Tmsblsb = class
   private
     p_msb: byte;
@@ -19,7 +17,6 @@ type
     PointValue: Pvalue;
     Pointmsb: pbyte;
     Pointlsb: pbyte;
-
     procedure setBytes(toConvert: word);
     procedure setLsb(newLsb: byte);
     procedure setMsb(newMsb: byte);
@@ -30,7 +27,6 @@ type
     property Value: word read p_value write setBytes;
   end;
 
-
   // Can use BEtoN to convert Big Endian to native PC
   // Can us NtoBE to convert Native to BE.
 implementation
@@ -39,11 +35,8 @@ procedure Tmsblsb.setBytes(toConvert: word);
 var
   temp: byte;
 begin
-  ;
   //TEMP
-
   p_value := toConvert;
-
   Pointmsb := @p_value;
   Pointlsb := (Pointmsb + 1);
   temp := byte(Pointlsb^);

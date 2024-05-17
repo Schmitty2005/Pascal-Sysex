@@ -147,6 +147,7 @@ y:=0;
 
   doublemidi.filename := 'rushmidi.mid';
 
+  doublemidi.viewTrack(1);
 
   //doublemidi.setBytes(65536);
 

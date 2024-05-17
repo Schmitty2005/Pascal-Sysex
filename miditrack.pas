@@ -13,6 +13,7 @@ type
 
   TMidiTrackEvent = class
   private
+    posTrack :  ^byte;
     deltaTime: longword;
     eventChannel: byte;
     param1: byte;
@@ -40,22 +41,22 @@ end;
 
 function TMidiTrackEvent.get_event: byte;
 begin
-  Result := BEToN(eventChannel); // needs work to break down properly!
+  Result := (eventChannel); // needs work to break down properly!
 end;
 
 function TMidiTrackEvent.get_channel: byte;
 begin
-  Result := BEToN(eventChannel); // needs work to break down properly!
+  Result := (eventChannel); // needs work to break down properly!
 end;
 
 function TMidiTrackEvent.get_param1: byte;
 begin
-  Result := BEToN(param1); // needs work to break down properly!
+  Result := (param1); // needs work to break down properly!
 end;
 
 function TMidiTrackEvent.get_param2: byte;
 begin
-  Result := BEToN(param2); // needs work to break down properly!
+  Result := (param2); // needs work to break down properly!
 end;
 
 function TMIDITrackEvent.vblDecode(bytePoint: Pointer): longword; inline;

@@ -21,18 +21,12 @@ type
     chunkSize: Dword;
   end;
 
-
-
-
-
-
   PTTrackChunk = ^TTrackChunk;
   PTMIDIHeader = ^TMIDIHeader;
 
-
-
   Tmidier = class
   private
+    posMidiTrack : ^byte;
     midiHeader: TMIDIHeader;
     midiFileName: string;
     midiFileBytes: array of byte;
@@ -44,13 +38,33 @@ type
   public
     procedure getHeader;
     property filename: string read midiFileName write loadMIDIfile;
-    function viewTrack (header : Pointer) : String;
+    function viewTrack (TrackNumber : Word) : String;
   end;
 
 implementation
 
-function Tmidier.viewTrack (header : Pointer) : String;
+function Tmidier.viewTrack (TrackNumber : Word) : String;
+type
+  PTrackPos = Pbyte;
+var
+  tLength : word;
+  TrackNumPointer : Pbyte;
+  LengthPointer : Pword;
+  x : Qword;
 begin
+  x:=0;
+  TrackNumPointer := Pbyte(filetrackpointers[TrackNumber -1]);
+  posMidiTrack := Pbyte(TrackNumPointer)+8;//skip header info
+  LengthPointer := Pword(TrackNUmPointer)+5;
+  // would tLength = BEtoN((Pword(TrackNUmPointer)+5)^); //work ?
+  tLength := BEtoN(LengthPointer^);
+  writeln (format('X: %d Header : %p , Length : %d', [x, TrackNumPointer, tLength]));
+  // test routine for position of header pointer
+  repeat
+      writeln (format ('X: %d    Position : %p', [x, posMidiTrack]));
+      posMIDItrack := Pbyte(posMIDITrack) + 1;
+      inc(x);
+   until  x = tLength;
   result :='';
 end;
 
