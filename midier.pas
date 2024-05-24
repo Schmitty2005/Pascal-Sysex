@@ -59,7 +59,7 @@ begin
   // test routine for position of header pointer
   repeat
     Inc(posMidiTrack);
-    writeln(format('X: %d    Position : %p', [x, posMidiTrack]));
+    writeln(format('X: %d    Position : %p     Value : %d', [x, posMidiTrack, posMIDITrack^]));
     //start to breakdown MIDI messages
     //NOT COMPLETE !
     case (posMIDITrack^) of
@@ -72,8 +72,18 @@ begin
       end;
     end;
     case (posMIDITrack^ and $F0) of
-      $80: Write('Note off');
-      $90: Write('Note On');
+      $80:
+      begin
+        Write('Note off ');
+        write('Channel : ');
+        writeln ((posMIDITrack^ and $0F) + 1);
+      end;
+      $90:
+      begin
+        Write('Note On ');
+        write('Channel : ');
+        writeln ((posMIDITrack^ and $0F) + 1);
+      end;
     end;
     Inc(x);
   until x = tLength;
