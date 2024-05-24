@@ -26,7 +26,7 @@ type
 
   Tmidier = class
   private
-    posMidiTrack : Pbyte;//^byte;
+    posMidiTrack: pbyte;//^byte;
     midiHeader: TMIDIHeader;
     midiFileName: string;
     midiFileBytes: array of byte;
@@ -38,44 +38,46 @@ type
   public
     procedure getHeader;
     property filename: string read midiFileName write loadMIDIfile;
-    function viewTrack (TrackNumber : Word) : String;
+    function viewTrack(TrackNumber: word): string;
   end;
 
 implementation
 
-function Tmidier.viewTrack (TrackNumber : Word) : String;
-type
-  PTrackPos = Pbyte;
+function Tmidier.viewTrack(TrackNumber: word): string;
 var
-  tLength : word;
-  TrackNumPointer : Pbyte;
-  LengthPointer : PDword;
-  x : Qword;
+  tLength: word;
+  TrackNumPointer: pbyte;
+  LengthPointer: PDword;
+  x: Qword;
 begin
-  x:=0;
-  TrackNumPointer := Pbyte(filetrackpointers[TrackNumber -1]);
-  posMidiTrack := Pbyte(TrackNumPointer)+8;//skip header info
-  LengthPointer := (Pointer(TrackNUmPointer))+4;
-  // would tLength = BEtoN((Pword(TrackNUmPointer)+5)^); //work ?
+  x := 0;
+  TrackNumPointer := pbyte(filetrackpointers[TrackNumber - 1]);
+  posMidiTrack := pbyte(TrackNumPointer) + 8;//skip header info
+  LengthPointer := (Pointer(TrackNUmPointer)) + 4;
   tLength := BEtoN(LengthPointer^);
-  writeln (format('X: %d Header : %p , Length : %d', [x, TrackNumPointer, tLength]));
+  writeln(format('X: %d Header : %p , Length : %d', [x, TrackNumPointer, tLength]));
   // test routine for position of header pointer
   repeat
-      posMidiTrack := posMidiTrack + (x);
-      writeln (format ('X: %d    Position : %p', [x, posMidiTrack]));
-  //start to breakdown MIDI messages
-  //NOT COMPLETE !
-      case (posMIDITrack^) of
-        255 : write (posMIDITrack^);
-
-      else
-      posMIDItrack := Pbyte(posMIDITrack) + 1;
-
+    Inc(posMidiTrack);
+    writeln(format('X: %d    Position : %p', [x, posMidiTrack]));
+    //start to breakdown MIDI messages
+    //NOT COMPLETE !
+    case (posMIDITrack^) of
+      $FF:
+      begin
+        Write('FF ');
+        Inc(posMidiTrack);
+        Write('Code : ');
+        writeln(posMIDItrack^);
       end;
-      inc(x);
-      //end;
-   until  x = tLength-2;
-  result :='';
+    end;
+    case (posMIDITrack^ and $F0) of
+      $80: Write('Note off');
+      $90: Write('Note On');
+    end;
+    Inc(x);
+  until x = tLength;
+  Result := '';
 end;
 
 procedure Tmidier.getHeader;
