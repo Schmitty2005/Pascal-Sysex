@@ -67,6 +67,9 @@ begin
       begin
         Write('FF ');
         Inc(posMidiTrack);
+        case (posMIDITrack^) of
+          $58 : writeln ('Time Signature');
+          end;
         Write('Code : ');
         writeln(posMIDItrack^);
       end;
