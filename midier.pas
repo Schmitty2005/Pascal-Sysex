@@ -1,4 +1,5 @@
 {$mode Delphi}
+{$T-}
 unit midier;
 
 interface
@@ -35,6 +36,7 @@ type
     function getFirstTrackPos: Pointer;
     procedure setTrackPointers;
     function getNextTrackPos(previousTrack: PTTrackChunk): PTTrackChunk;
+    function vblDecode(bytePoint: Pointer): longword; inline;
   public
     procedure getHeader;
     property filename: string read midiFileName write loadMIDIfile;
@@ -49,17 +51,46 @@ var
   TrackNumPointer: pbyte;
   LengthPointer: PDword;
   x: Qword;
+  delta: longword;
+  eventLength: longword;
+  eventType: byte;
+
+
+  function vblDecode(bytePoint: Pointer): longword; inline;
+  var
+    w: ^byte;
+    x: byte;
+    output: longword;
+  begin
+    // $81 and $7F should be 255
+    // $82 , $80, and $00 = 32768
+    x := 0;
+    output := 0;
+    repeat
+      w := bytePoint + x;
+      Inc(x);
+      output := ((output shl 7) or ((w^ and $7F)));
+    until (byte(w^) and $80) = 0;
+    //remember to set class pointer here
+    Inc(posMIDITrack, x);
+    Result := output;
+  end;
+
 begin
   x := 0;
   TrackNumPointer := pbyte(filetrackpointers[TrackNumber - 1]);
   posMidiTrack := pbyte(TrackNumPointer) + 8;//skip header info
   LengthPointer := (Pointer(TrackNUmPointer)) + 4;
   tLength := BEtoN(LengthPointer^);
-  writeln(format('X: %d Header : %p , Length : %d', [x, TrackNumPointer, tLength]));
+  writeln(format('X: %d Header : %p , Length : %d  ', [x, TrackNumPointer, tLength]));
   // test routine for position of header pointer
   repeat
-    Inc(posMidiTrack);
-    writeln(format('X: %d    Position : %p     Value : %d', [x, posMidiTrack, posMIDITrack^]));
+    //get VBL delta time
+    delta := vblDecode(posMIDITrack);
+
+    writeln(format('Delta:  %d X: %d    Position : %p     Value : %d  HEX: %x',
+      [delta, x, posMidiTrack, posMIDITrack^, posMIDITrack^]) +
+      ' ASCII: ' + char(posMIDITrack^));
     //start to breakdown MIDI messages
     //NOT COMPLETE !
     case (posMIDITrack^) of
@@ -67,31 +98,68 @@ begin
       begin
         Write('FF ');
         Inc(posMidiTrack);
-        case (posMIDITrack^) of
-          $58 : writeln ('Time Signature');
-          end;
-        Write('Code : ');
-        writeln(posMIDItrack^);
+        //get type  Type will be an enum later
+        eventType := posMidiTrack^;
+        Inc(posMIDITrack);
+        //get length
+        eventLength := (posMIDITrack^);
+        Inc(PosMIDITrack, eventLength + 1);
+        writeln(format('Event Type : %d     Event Length : %d     ',
+          [eventType, eventLength]));
       end;
     end;
     case (posMIDITrack^ and $F0) of
       $80:
       begin
-        Write('Note off ');
-        write('Channel : ');
-        writeln ((posMIDITrack^ and $0F) + 1);
+        Write('  Channel : ');
+        Write(posMIDItrack^ and $0F); //get channel = posMIDITrack^ and $0F??
+        Inc(posMIDItrack);
+        Write('  Note off ');
+        Write(posMIDITrack^); //get note
+        Inc(posMIDITrack);
+        Write('  Velocity : ');
+        Writeln(posMIDITrack^); //get velocity
+        //writeln((posMIDITrack^ and $0F) + 1);
+        Inc(posMIDITrack);
       end;
       $90:
       begin
-        Write('Note On ');
-        write('Channel : ');
-        writeln ((posMIDITrack^ and $0F) + 1);
+        Write('  Channel : ');
+        Write(posMIDItrack^ and $0F); //get channel = posMIDITrack^ and $0F??
+        Inc(posMIDItrack);
+        Write('  Note off ');
+        Write(posMIDITrack^); //get note
+        Inc(posMIDITrack);
+        Write('  Velocity : ');
+        Writeln(posMIDITrack^); //get velocity
+        //writeln((posMIDITrack^ and $0F) + 1);
+        Inc(posMIDITrack);
       end;
+      //needs other meta-events here (aftertouch, pitchbend, etc.)
     end;
     Inc(x);
   until x = tLength;
   Result := '';
 end;
+
+function TMIDIer.vblDecode(bytePoint: Pointer): longword; inline;
+var
+  w: ^byte;
+  x: byte;
+  output: longword;
+begin
+  // $81 and $7F should be 255
+  // $82 , $80, and $00 = 32768
+  x := 0;
+  output := 0;
+  repeat
+    w := bytePoint + x;
+    Inc(x);
+    output := ((output shl 7) or ((w^ and $7F)));
+  until (byte(w^) and $80) = 0;
+  Result := output;
+end;
+
 
 procedure Tmidier.getHeader;
 var
