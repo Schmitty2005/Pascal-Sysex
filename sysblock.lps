@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <TopLine Value="9"/>
         <CursorPos X="3" Y="18"/>
-        <UsageCount Value="62"/>
+        <UsageCount Value="71"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -19,7 +19,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="37"/>
         <CursorPos X="24" Y="39"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="58"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -27,9 +27,9 @@
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="115"/>
-        <CursorPos X="16" Y="120"/>
-        <UsageCount Value="48"/>
+        <TopLine Value="90"/>
+        <CursorPos X="37" Y="99"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -39,137 +39,137 @@
         <EditorIndex Value="4"/>
         <TopLine Value="17"/>
         <CursorPos X="17" Y="78"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="sysexer.pas"/>
         <EditorIndex Value="1"/>
         <CursorPos Y="196"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="94" TopLine="79"/>
+        <Caret Line="96" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="108" TopLine="99"/>
+        <Caret Line="99" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="131" TopLine="122"/>
+        <Caret Line="146" TopLine="137"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="132" TopLine="122"/>
+        <Caret Line="89" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="88" TopLine="79"/>
+        <Caret Line="96" TopLine="81"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="90" TopLine="79"/>
+        <Caret Line="130" TopLine="119"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="91" TopLine="79"/>
+        <Caret Line="89" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="90" TopLine="79"/>
+        <Caret Line="94" Column="9" TopLine="88"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="91" TopLine="79"/>
+        <Caret Line="89" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="90" TopLine="79"/>
+        <Caret Line="91" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="94" TopLine="79"/>
+        <Caret Line="93" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="108" TopLine="99"/>
+        <Caret Line="92" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="121" TopLine="112"/>
+        <Caret Line="91" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="122" TopLine="112"/>
+        <Caret Line="93" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="123" TopLine="112"/>
+        <Caret Line="91" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="124" TopLine="112"/>
+        <Caret Line="94" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="125" TopLine="112"/>
+        <Caret Line="151" TopLine="142"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="127" TopLine="112"/>
+        <Caret Line="152" TopLine="142"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="131" TopLine="122"/>
+        <Caret Line="89" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="132" TopLine="122"/>
+        <Caret Line="91" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="88" TopLine="79"/>
+        <Caret Line="93" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="90" TopLine="79"/>
+        <Caret Line="92" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="91" TopLine="79"/>
+        <Caret Line="91" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="90" TopLine="79"/>
+        <Caret Line="93" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="91" TopLine="79"/>
+        <Caret Line="91" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="90" TopLine="79"/>
+        <Caret Line="94" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="94" TopLine="79"/>
+        <Caret Line="151" TopLine="142"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="108" TopLine="99"/>
+        <Caret Line="91" Column="2" TopLine="80"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="131" TopLine="122"/>
+        <Caret Line="57" Column="5" TopLine="46"/>
       </Position>
       <Position>
         <Filename Value="midier.pas"/>
-        <Caret Line="132" TopLine="122"/>
+        <Caret Line="99" Column="54" TopLine="88"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -191,50 +191,6 @@
     </HistoryLists>
   </ProjectSession>
   <Debugging>
-    <BreakPoints>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="midier.pas"/>
-        <Line Value="105"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="midier.pas"/>
-        <Line Value="110"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="midier.pas"/>
-        <Line Value="114"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="midier.pas"/>
-        <Line Value="139"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="midier.pas"/>
-        <Line Value="99"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="midier.pas"/>
-        <Line Value="89"/>
-      </Item>
-    </BreakPoints>
     <Watches>
       <Item>
         <Expression Value="output"/>

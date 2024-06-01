@@ -51,9 +51,10 @@ var
   TrackNumPointer: pbyte;
   LengthPointer: PDword;
   x: Qword;
+  runningStatus: byte;
   delta: longword;
-  eventLength: longword;
-  eventType: byte;
+  //eventLength: longword;
+  //eventType: byte;
 
 
   function vblDecode(bytePoint: Pointer): longword; inline;
@@ -82,15 +83,27 @@ begin
   posMidiTrack := pbyte(TrackNumPointer) + 8;//skip header info
   LengthPointer := (Pointer(TrackNUmPointer)) + 4;
   tLength := BEtoN(LengthPointer^);
+  runningStatus := 0;
   writeln(format('X: %d Header : %p , Length : %d  ', [x, TrackNumPointer, tLength]));
   // test routine for position of header pointer
   repeat
     //get VBL delta time
     delta := vblDecode(posMIDITrack);
-
+    {
     writeln(format('Delta:  %d X: %d    Position : %p     Value : %d  HEX: %x',
       [delta, x, posMidiTrack, posMIDITrack^, posMIDITrack^]) +
       ' ASCII: ' + char(posMIDITrack^));
+    }
+    if (((posMIDITrack^) and $80) = $80) then
+    begin
+      if (posMIDITrack^ > $80) and (posMIDITrack^ < $EF) then
+        runningStatus := posMIDITrack^;
+      Write(IntToHex(posMIDITrack^) + ' ');
+      writeln ('RS : ' + IntToHex(RunningStatus)+ ' ' );
+    end;
+
+
+    {
     //start to breakdown MIDI messages
     //NOT COMPLETE !
     case (posMIDITrack^) of
@@ -99,6 +112,11 @@ begin
         Write('FF ');
         Inc(posMidiTrack);
         //get type  Type will be an enum later
+        case (posMIDITrack^) of
+          $58 : inc(posMIDITrack, 3);//temp
+          $2F : writeln('END OF TRACK!');
+
+          end;
         eventType := posMidiTrack^;
         Inc(posMIDITrack);
         //get length
@@ -135,8 +153,10 @@ begin
         //writeln((posMIDITrack^ and $0F) + 1);
         Inc(posMIDITrack);
       end;
+
       //needs other meta-events here (aftertouch, pitchbend, etc.)
     end;
+}
     Inc(x);
   until x = tLength;
   Result := '';
