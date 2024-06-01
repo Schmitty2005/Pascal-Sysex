@@ -47,14 +47,17 @@ implementation
 
 function Tmidier.viewTrack(TrackNumber: word): string;
 var
+  note: byte;
+  velocity: byte;
   tLength: word;
   TrackNumPointer: pbyte;
   LengthPointer: PDword;
   x: Qword;
   runningStatus: byte;
+  statusType: byte;
   delta: longword;
-  //eventLength: longword;
-  //eventType: byte;
+  eventLength: longword;
+  eventType: byte;
 
 
   function vblDecode(bytePoint: Pointer): longword; inline;
@@ -87,20 +90,82 @@ begin
   writeln(format('X: %d Header : %p , Length : %d  ', [x, TrackNumPointer, tLength]));
   // test routine for position of header pointer
   repeat
-    //get VBL delta time
+    //Get Delta Time for event
     delta := vblDecode(posMIDITrack);
-    {
-    writeln(format('Delta:  %d X: %d    Position : %p     Value : %d  HEX: %x',
-      [delta, x, posMidiTrack, posMIDITrack^, posMIDITrack^]) +
-      ' ASCII: ' + char(posMIDITrack^));
-    }
+    //get Status Byte
+    //need to get $FF's first!
+    if (((posMIDITrack^) and $F0) = $F0) then
+      runningStatus := posMIDITrack^;
+
     if (((posMIDITrack^) and $80) = $80) then
     begin
       if (posMIDITrack^ > $80) and (posMIDITrack^ < $EF) then
         runningStatus := posMIDITrack^;
       Write(IntToHex(posMIDITrack^) + ' ');
-      writeln ('RS : ' + IntToHex(RunningStatus)+ ' ' );
+      writeln('RS : ' + IntToHex(RunningStatus) + ' ');
     end;
+
+    statusType := runningStatus and $F0;
+
+    //Evaluate Status Byte
+    case (runningStatus) of
+      $FF:
+      begin
+        Write(' Delta: ' + IntToStr(delta));
+        Write('FF ');
+        Inc(posMidiTrack);
+        //get type  Type will be an enum later
+        case (posMIDITrack^) of
+          $58: Inc(posMIDITrack, 3);//temp
+          $2F:
+          begin
+            writeln('END OF TRACK!');
+            x := tLength; //not the best way to handle EOF;
+          end;
+        end;
+        eventType := posMidiTrack^;
+        Inc(posMIDITrack);
+        //get length
+        eventLength := (posMIDITrack^);
+        Inc(PosMIDITrack, eventLength + 1);
+        writeln(format('Event Type : %d     Event Length : %d     ',
+          [eventType, eventLength]));
+      end;
+    end;
+
+    case (statusType) of
+      $80:
+      begin
+        Inc(posMIDITrack^);
+        note := posMIDITrack^;
+        Inc(posMIDITrack);
+        velocity := posMIDITrack^;
+        Inc(PosMIDITrack);
+        writeln('Delta: ' + IntToStr(Delta) + ' Running Status: ' +
+          IntToHex(RunningStatus) + '  NOTE: ' + IntToStr(note) +
+          ' Velocity: ' + IntToStr(velocity));
+      end;
+
+      $90:
+      begin
+        //add routine to get channell from running status
+        Inc(posMIDITrack^);
+        note := posMIDITrack^;
+        Inc(posMIDITrack);
+        velocity := posMIDITrack^;
+        Inc(PosMIDITrack);
+        writeln('Delta: ' + IntToStr(Delta) + ' Running Status: ' +
+          IntToHex(RunningStatus) + '  NOTE: ' + IntToStr(note) +
+          ' Velocity: ' + IntToStr(velocity));
+      end;
+
+    end;
+
+
+    //There is always a delta time after and event.  There may or may not be a
+    //status byte!  Delta times can start with $80!  So, after an event
+    // $90 $NOTE $VEL, there will be a delta time, possibly followed by another
+    //event code, if not, then previous event code applies to next $NOTE $VEL
 
 
     {
@@ -157,8 +222,9 @@ begin
       //needs other meta-events here (aftertouch, pitchbend, etc.)
     end;
 }
-    Inc(x);
-  until x = tLength;
+    //Inc(x);
+
+  until x = tLength; // update to use posMIDItrack pointer - start = tlength
   Result := '';
 end;
 
@@ -247,3 +313,14 @@ end;
 
 
 end.
+{
+Channel Note Messages
+$    BYTES   Dta Lngth  Function
+8nH 1000nnnn 2        Note Off
+9nH 1001nnnn 2        Note On (a velocity of 0 = Note Off)
+AnH 1010nnnn 2        Polyphonic key pressure/Aftertouch
+BnH 1011nnnn 2        Control change
+CnH 1100nnnn 1        Program change
+DnH 1101nnnn 1        Channel pressure/After touch
+EnH 1110nnnn 2        Pitch bend chang
+}
