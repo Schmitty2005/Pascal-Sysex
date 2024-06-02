@@ -8,7 +8,6 @@ uses
   Classes, SysUtils;
 
 type
-
   TMIDIHeader = bitpacked record
     chunkID: array[0..3] of char;  //Always 'MThd' 0x4D546864
     chunkSize: Dword;
@@ -60,7 +59,6 @@ var
   eventType: byte;
   eventText: shortstring;
 
-
   function vblDecode(bytePoint: Pointer): longword; inline;
   var
     w: ^byte;
@@ -77,11 +75,12 @@ var
       output := ((output shl 7) or ((w^ and $7F)));
     until (byte(w^) and $80) = 0;
     //remember to set class pointer here
-    Inc(posMIDITrack, x);
+    Inc(posMIDITrack, x);// Added '+1' for testing purposes
     Result := output;
   end;
 
 begin
+  statusType := 0;
   x := 0;
   TrackNumPointer := pbyte(filetrackpointers[TrackNumber - 1]);
   posMidiTrack := pbyte(TrackNumPointer) + 8;//skip header info
@@ -89,44 +88,30 @@ begin
   tLength := BEtoN(LengthPointer^);
   runningStatus := 0;
   writeln(format('X: %d Header : %p , Length : %d  ', [x, TrackNumPointer, tLength]));
-  // test routine for position of header pointer
+  delta := vblDecode(posMIDITrack); //get initial delta time
   repeat
-    //Get Delta Time for event
-    delta := vblDecode(posMIDITrack);
-    //get Status Byte
-    //need to get $FF's first!
-    if (((posMIDITrack^) and $F0) = $F0) then
-      runningStatus := posMIDITrack^;
-
-    if (((posMIDITrack^) and $80) = $80) then
-    begin
-      if (posMIDITrack^ > $80) and (posMIDITrack^ < $EF) then
-        runningStatus := posMIDITrack^;
-      Write(IntToHex(posMIDITrack^) + ' ');
-      writeln('RS : ' + IntToHex(RunningStatus) + ' ');
-    end;
-
-    statusType := runningStatus and $F0;
+    if (posMidiTrack^ >= $80) and (posMIDItrack^ < $FF) then
+      statusType := posMIDITrack^ and $F0
+    else if posMIDITrack^ = $FF then runningStatus := $FF;
 
     //Evaluate Status Byte
+    //Each case statment is responsible for incrementing the pointer to the next element
     case (runningStatus) of
       $FF:
       begin
         Inc(posMIDITrack);
+        runningStatus := 0; // Running status cannot work on $FF
         case (posMIDITrack^) of
           $03://name of seq or track
           begin
             Inc(posMIDITrack);
             eventLength := (posMIDItrack^);
-
             eventText := (pshortstring(posMIDItrack)^);
-            //Inc(posMIDITrack);
-
             Write('Track Name: ' + ansistring(eventText) + sLineBreak);
             Inc(posMIDITrack, eventLength);
           end;
-          $51: Inc(posMIDITrack, 4);// tempo
-          $58: Inc(posMIDITrack, 5);//temp placeholder
+          $51: Inc(posMIDITrack, 4);// tempo 81 in decimal
+          $58: Inc(posMIDITrack, 5);//temp placeholder 88 indecimal
           $81: Inc(posMIDItrack, 3);
           $2F:
           begin
@@ -136,29 +121,28 @@ begin
         end; //End Case FF
         Inc(posMIDITrack);
         delta := vblDecode(posMIDITrack);
-        statusType := posMIDITrack^ and $F0;
-
+        if (posMidiTrack^ >= $80) and (posMIDItrack^ < $FF) then
+          statusType := posMIDITrack^ and $F0 ;
       end;
-
     end;
 
     case (statusType) of
       $80:
       begin
-        Inc(posMIDITrack^);
+        //Inc(posMIDITrack);
         note := posMIDITrack^;
         Inc(posMIDITrack);
         velocity := posMIDITrack^;
         Inc(PosMIDITrack);
-        writeln('Delta: ' + IntToStr(Delta) + ' Running Status: ' +
-          IntToHex(RunningStatus) + '  NOTE: ' + IntToStr(note) +
+        writeln(' Delta: ' + IntToStr(Delta) + ' Running Status: ' +
+          IntToHex(statusType) + '  NOTE: ' + IntToStr(note) +
           ' Velocity: ' + IntToStr(velocity));
       end;
 
       $90:
       begin
         //add routine to get channell from running status
-                Inc(posMIDITrack^);
+        //       Inc(posMIDITrack);
         note := posMIDITrack^;
         Inc(posMIDITrack);
         velocity := posMIDITrack^;
@@ -167,15 +151,16 @@ begin
           IntToHex(RunningStatus) + '  NOTE: ' + IntToStr(note) +
           ' Velocity: ' + IntToStr(velocity));
       end;
-      $A0: Inc(posMIDItrack, 2);//aftertouch 2 byte
 
-      $B0: Inc(posMIDItrack, 2);//control  2 byte
+      $A0: Inc(posMIDItrack, 3);//aftertouch 2 byte
 
-      $C0: Inc(posMIDItrack);//program change  1 byte
+      $B0: Inc(posMIDItrack, 3);//control  2 byte
 
-      $D0: Inc(posMIDItrack, 2);//channel pressure  2 bytes
+      $C0: Inc(posMIDItrack, 2);//program change  1 byte
 
-      $E0: Inc(posMIDItrack, 2);//pitch bend  2 bytes
+      $D0: Inc(posMIDItrack, 3);//channel pressure  2 bytes
+
+      $E0: Inc(posMIDItrack, 3);//pitch bend  2 bytes
 
     end;
 
