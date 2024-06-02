@@ -58,6 +58,7 @@ var
   delta: longword;
   eventLength: longword;
   eventType: byte;
+  eventText: shortstring;
 
 
   function vblDecode(bytePoint: Pointer): longword; inline;
@@ -111,26 +112,34 @@ begin
     case (runningStatus) of
       $FF:
       begin
-        Write(' Delta: ' + IntToStr(delta));
-        Write('FF ');
-        Inc(posMidiTrack);
-        //get type  Type will be an enum later
+        Inc(posMIDITrack);
         case (posMIDITrack^) of
-          $58: Inc(posMIDITrack, 3);//temp
+          $03://name of seq or track
+          begin
+            Inc(posMIDITrack);
+            eventLength := (posMIDItrack^);
+
+            eventText := (pshortstring(posMIDItrack)^);
+            //Inc(posMIDITrack);
+
+            Write('Track Name: ' + ansistring(eventText) + sLineBreak);
+            Inc(posMIDITrack, eventLength);
+          end;
+          $51: Inc(posMIDITrack, 4);// tempo
+          $58: Inc(posMIDITrack, 5);//temp placeholder
+          $81: Inc(posMIDItrack, 3);
           $2F:
           begin
             writeln('END OF TRACK!');
             x := tLength; //not the best way to handle EOF;
           end;
-        end;
-        eventType := posMidiTrack^;
+        end; //End Case FF
         Inc(posMIDITrack);
-        //get length
-        eventLength := (posMIDITrack^);
-        Inc(PosMIDITrack, eventLength + 1);
-        writeln(format('Event Type : %d     Event Length : %d     ',
-          [eventType, eventLength]));
+        delta := vblDecode(posMIDITrack);
+        statusType := posMIDITrack^ and $F0;
+
       end;
+
     end;
 
     case (statusType) of
@@ -149,15 +158,24 @@ begin
       $90:
       begin
         //add routine to get channell from running status
-        Inc(posMIDITrack^);
+                Inc(posMIDITrack^);
         note := posMIDITrack^;
         Inc(posMIDITrack);
         velocity := posMIDITrack^;
         Inc(PosMIDITrack);
-        writeln('Delta: ' + IntToStr(Delta) + ' Running Status: ' +
+        writeln(' Delta: ' + IntToStr(Delta) + ' Running Status: ' +
           IntToHex(RunningStatus) + '  NOTE: ' + IntToStr(note) +
           ' Velocity: ' + IntToStr(velocity));
       end;
+      $A0: Inc(posMIDItrack, 2);//aftertouch 2 byte
+
+      $B0: Inc(posMIDItrack, 2);//control  2 byte
+
+      $C0: Inc(posMIDItrack);//program change  1 byte
+
+      $D0: Inc(posMIDItrack, 2);//channel pressure  2 bytes
+
+      $E0: Inc(posMIDItrack, 2);//pitch bend  2 bytes
 
     end;
 
@@ -166,63 +184,6 @@ begin
     //status byte!  Delta times can start with $80!  So, after an event
     // $90 $NOTE $VEL, there will be a delta time, possibly followed by another
     //event code, if not, then previous event code applies to next $NOTE $VEL
-
-
-    {
-    //start to breakdown MIDI messages
-    //NOT COMPLETE !
-    case (posMIDITrack^) of
-      $FF:
-      begin
-        Write('FF ');
-        Inc(posMidiTrack);
-        //get type  Type will be an enum later
-        case (posMIDITrack^) of
-          $58 : inc(posMIDITrack, 3);//temp
-          $2F : writeln('END OF TRACK!');
-
-          end;
-        eventType := posMidiTrack^;
-        Inc(posMIDITrack);
-        //get length
-        eventLength := (posMIDITrack^);
-        Inc(PosMIDITrack, eventLength + 1);
-        writeln(format('Event Type : %d     Event Length : %d     ',
-          [eventType, eventLength]));
-      end;
-    end;
-    case (posMIDITrack^ and $F0) of
-      $80:
-      begin
-        Write('  Channel : ');
-        Write(posMIDItrack^ and $0F); //get channel = posMIDITrack^ and $0F??
-        Inc(posMIDItrack);
-        Write('  Note off ');
-        Write(posMIDITrack^); //get note
-        Inc(posMIDITrack);
-        Write('  Velocity : ');
-        Writeln(posMIDITrack^); //get velocity
-        //writeln((posMIDITrack^ and $0F) + 1);
-        Inc(posMIDITrack);
-      end;
-      $90:
-      begin
-        Write('  Channel : ');
-        Write(posMIDItrack^ and $0F); //get channel = posMIDITrack^ and $0F??
-        Inc(posMIDItrack);
-        Write('  Note off ');
-        Write(posMIDITrack^); //get note
-        Inc(posMIDITrack);
-        Write('  Velocity : ');
-        Writeln(posMIDITrack^); //get velocity
-        //writeln((posMIDITrack^ and $0F) + 1);
-        Inc(posMIDITrack);
-      end;
-
-      //needs other meta-events here (aftertouch, pitchbend, etc.)
-    end;
-}
-    //Inc(x);
 
   until x = tLength; // update to use posMIDItrack pointer - start = tlength
   Result := '';
