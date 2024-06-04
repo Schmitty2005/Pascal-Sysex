@@ -53,10 +53,8 @@ var
   LengthPointer: PDword;
   x: Qword;
   runningStatus: byte;
-  statusType: byte;
   delta: longword;
   eventLength: longword;
-  eventType: byte;
   eventText: shortstring;
 
   function vblDecode(bytePoint: Pointer): longword; inline;
@@ -74,13 +72,11 @@ var
       Inc(x);
       output := ((output shl 7) or ((w^ and $7F)));
     until (byte(w^) and $80) = 0;
-    //remember to set class pointer here
-    Inc(posMIDITrack, x);// Added '+1' for testing purposes
+    Inc(posMIDITrack, x);
     Result := output;
   end;
 
 begin
-  statusType := 0;
   x := 0;
   TrackNumPointer := pbyte(filetrackpointers[TrackNumber - 1]);
   posMidiTrack := pbyte(TrackNumPointer) + 8;//skip header info
@@ -89,7 +85,7 @@ begin
   runningStatus := 0;
   writeln(format('X: %d Header : %p , Length : %d  ', [x, TrackNumPointer, tLength]));
   delta := vblDecode(posMIDITrack); //get initial delta time
-  //runningStatus := posMIDITrack^;
+
   repeat
 
     if (posMIDITrack^) > $7F then
@@ -113,8 +109,7 @@ begin
             Inc(posMIDITrack, eventLength + 1);
           end;
           $51: Inc(posMIDITrack, 5);//DEC 81 tempo
-          $58: Inc(posMIDITrack, 6);
-          //DEC 88changed to 4 from 5 temp placeholder 88 in decimal
+          $58: Inc(posMIDITrack, 6);//DEC 88
           $81: Inc(posMIDItrack, 3);//DEC
           $2F:
           begin
