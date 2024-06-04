@@ -89,17 +89,19 @@ begin
   runningStatus := 0;
   writeln(format('X: %d Header : %p , Length : %d  ', [x, TrackNumPointer, tLength]));
   delta := vblDecode(posMIDITrack); //get initial delta time
+  //runningStatus := posMIDITrack^;
   repeat
-    if (posMidiTrack^ >= $80) and (posMIDItrack^ < $FF) then
-      statusType := posMIDITrack^ and $F0
-    else if posMIDITrack^ = $FF then runningStatus := $FF;
 
-    //Evaluate Status Byte
-    //Each case statment is responsible for incrementing the pointer to the next element
+    if (posMIDITrack^) > $7F then
+    begin
+      runningStatus := posMIDITrack^;
+      Inc(posMIDItrack);
+    end;
+
     case (runningStatus) of
       $FF:
       begin
-        Inc(posMIDITrack);
+        //Inc(posMIDITrack);
         runningStatus := 0; // Running status cannot work on $FF
         case (posMIDITrack^) of
           $03://name of seq or track
@@ -108,68 +110,68 @@ begin
             eventLength := (posMIDItrack^);
             eventText := (pshortstring(posMIDItrack)^);
             Write('Track Name: ' + ansistring(eventText) + sLineBreak);
-            Inc(posMIDITrack, eventLength);
+            Inc(posMIDITrack, eventLength + 1);
           end;
-          $51: Inc(posMIDITrack, 4);// tempo 81 in decimal
-          $58: Inc(posMIDITrack, 5);//temp placeholder 88 indecimal
-          $81: Inc(posMIDItrack, 3);
+          $51: Inc(posMIDITrack, 5);//DEC 81 tempo
+          $58: Inc(posMIDITrack, 6);
+          //DEC 88changed to 4 from 5 temp placeholder 88 in decimal
+          $81: Inc(posMIDItrack, 3);//DEC
           $2F:
           begin
             writeln('END OF TRACK!');
             x := tLength; //not the best way to handle EOF;
           end;
-        end; //End Case FF
-        Inc(posMIDITrack);
-        delta := vblDecode(posMIDITrack);
-        if (posMidiTrack^ >= $80) and (posMIDItrack^ < $FF) then
-          statusType := posMIDITrack^ and $F0 ;
+        end;//End $FF parse case
       end;
-    end;
 
-    case (statusType) of
-      $80:
+      $80..$8F:
       begin
-        //Inc(posMIDITrack);
         note := posMIDITrack^;
         Inc(posMIDITrack);
         velocity := posMIDITrack^;
         Inc(PosMIDITrack);
-        writeln(' Delta: ' + IntToStr(Delta) + ' Running Status: ' +
-          IntToHex(statusType) + '  NOTE: ' + IntToStr(note) +
-          ' Velocity: ' + IntToStr(velocity));
+        writeln(format ('Note OFF : %d  Vel : %d  delta : %d', [note, velocity, delta]));
+
       end;
 
-      $90:
+      $90..$9F:
       begin
-        //add routine to get channell from running status
-        //       Inc(posMIDITrack);
         note := posMIDITrack^;
         Inc(posMIDITrack);
         velocity := posMIDITrack^;
         Inc(PosMIDITrack);
-        writeln(' Delta: ' + IntToStr(Delta) + ' Running Status: ' +
-          IntToHex(RunningStatus) + '  NOTE: ' + IntToStr(note) +
-          ' Velocity: ' + IntToStr(velocity));
+        writeln(format ('Note ON  : %d  Vel : %d  delta : %d', [note, velocity, delta]));
       end;
 
-      $A0: Inc(posMIDItrack, 3);//aftertouch 2 byte
+      $A0..$AF:
+        Inc(posMIDItrack, 3);//aftertouch 2 byte
 
-      $B0: Inc(posMIDItrack, 3);//control  2 byte
+      $B0..$BF:
+        Inc(posMIDItrack, 3);//control  2 byte
 
-      $C0: Inc(posMIDItrack, 2);//program change  1 byte
+      $C0..$CF:
+        Inc(posMIDItrack, 2);//program change  1 byte
 
-      $D0: Inc(posMIDItrack, 3);//channel pressure  2 bytes
+      $D0..$DF:
+        Inc(posMIDItrack, 3);//channel pressure  2 bytes
 
-      $E0: Inc(posMIDItrack, 3);//pitch bend  2 bytes
+      $E0..$EF:
+        Inc(posMIDItrack, 3);//pitch bend  2 bytes
+    end; //End event Code case
 
-    end;
 
+// Page 136 of MIDI Spec for Files :
+   // All meta-events begin with FF, then have an event type byte
+   //(which is always less than 128), and then have the length of the data
+   //stored as a variable-length quantity, and then the data itself.
+   //If there is no data, the length is 0.
 
     //There is always a delta time after and event.  There may or may not be a
     //status byte!  Delta times can start with $80!  So, after an event
     // $90 $NOTE $VEL, there will be a delta time, possibly followed by another
     //event code, if not, then previous event code applies to next $NOTE $VEL
 
+    delta := vblDecode(posMIDITrack);
   until x = tLength; // update to use posMIDItrack pointer - start = tlength
   Result := '';
 end;
