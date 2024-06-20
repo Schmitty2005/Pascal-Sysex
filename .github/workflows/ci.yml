@@ -1,4 +1,7 @@
-              - name: Free Pascal Compiler
-                uses: suve/GHActions-FPC@v0.4.0
+name: Install FPC
+  run:
+    export DEBIAN_FRONTEND=noninteractive
+    sudo apt-get update
+    sudo apt-get install -y fpc
             
 
