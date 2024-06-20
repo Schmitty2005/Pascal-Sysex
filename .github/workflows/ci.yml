@@ -1,0 +1,4 @@
+              - name: Free Pascal Compiler
+                uses: suve/GHActions-FPC@v0.4.0
+            
+
